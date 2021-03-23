@@ -120,3 +120,58 @@ Objective 1: Time/space complexity, strengths & weaknesses, and common uses of a
             - this can be a downside, as we need enough contiguous space in memory for entire array
             - not knowing how much space is needed can leaxd to wasted or limited space
 """
+
+
+
+#  Implementing linked lists in Python
+
+# Step 1: Build a class for nodes
+class LinkedListNode:
+    def __init__(self, data=None, next=None):
+        self.data = data
+        self.next = next
+
+
+# Step 2: Build class for list
+class LinkedList:
+    def __init__(self, head=None):
+        self.head = head
+
+    # Step 3: Define append operation
+    def append(self, data):
+        new_node = LinkedListNode(data)
+
+        if self.head:
+            current = self.head
+
+            while current.next:
+                current = current.next
+
+            current.next = new_node
+        
+        else:
+            self.head = new_node
+
+
+# How to define a basic linked list:
+
+# 1
+a = LinkedListNode(1)
+
+# 2
+my_ll = LinkedList(a)
+
+# 3
+my_ll.append(2)
+my_ll.append(3)
+my_ll.append(4)
+
+
+def printNodes(head):
+    curr = head
+
+    while curr:
+         return str(curr.data) + "->" + str(printNodes(curr.next))
+
+
+print(printNodes(a))
