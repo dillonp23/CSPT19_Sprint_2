@@ -100,4 +100,23 @@ Objective 1: Time/space complexity, strengths & weaknesses, and common uses of a
             - 0th index (head) is easy, but in middle or at end is not
             - in order to know if a LL has an element at index, we need to traverse list & count
             - no simple math to jump from first element to 7th like an array
+
+
+    
+    * What data structures are built on linked lists?
+        - LL's have efficient operations at ends
+        - two data structure implementations that only operate at ends:
+
+            1. stacks
+
+            2. queues
+    
+
+    * Why are linked lists different than arrays? What problems do they solve?
+        - linked lists optimize for space while sacrificing time complexity compared to arrays
+        
+        - arrays sacrifice space to optimize for time complexity (quick indexings)
+        - quick indexings are one of the primary benefits of arrays
+            - this can be a downside, as we need enough contiguous space in memory for entire array
+            - not knowing how much space is needed can leaxd to wasted or limited space
 """
