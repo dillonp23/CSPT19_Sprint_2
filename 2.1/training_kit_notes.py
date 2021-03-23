@@ -43,7 +43,8 @@ Objective 1: Time & space complexity, strengths & weaknesses, basic array operat
     Weaknesses (when to avoid):
         1. when the amount of data is not known
             - not good when size/amount of information is frequent to change
-            - running out of space in memory demands copying all elements to a new larger array
+            - running out of space in memory demands copying all elements to a new larger static array
+                - dynamic arrays aren't as effected as static arrays in this sense
 
         2. if you plan to add at beginning or within the array
             - avoid using unless you'll only be adding data to end of array
@@ -98,4 +99,30 @@ Objective 2: In-place vs out-of-place algorithms
         
     Additonal Resources:
         https://www.techiedelight.com/in-place-vs-out-of-place-algorithms/
+"""
+
+
+
+"""
+Objective 3: Static vs. Dynamic Arrays
+
+    * Dynamic arrays enable you to instantiate a new array without knowing what size is needed
+        - static arrays require you to know the size
+
+    * When to use dynamic arrays (lists in python) vs static?
+        - when the amount of info is not known at init, or if subject to fluctuation
+
+    How it works:
+        - a dynamic array is built on a static array, and keeps track of:
+            1. starting index
+            2. last index of element already in array
+            3. index for last slot avaialable in memory
+
+        - size vs capacity:
+            - array size = number of elements its currently holding
+            - array capacity = # of items it could hold before running out of room
+
+
+    Additional Resources:
+        https://www.youtube.com/watch?v=qTb1sZX74K0
 """
