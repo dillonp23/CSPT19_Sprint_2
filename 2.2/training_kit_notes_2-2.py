@@ -45,4 +45,22 @@ Objective 1: Time/space complexity, strengths & weaknesses, and common uses of a
         2. doubly linked list (DLL)
 
         3. circular linked list
+
+
+    Singly linked lists:
+        - can only navigate forward in SLL
+        - to traverse, need to sart at reference to first node ("head")
+        - from there, you can iterate through using each node's next pointer
+        - reference to end of list is known as the "tail"
+
+    
+    Doubly linked lists:
+        - can navigate forward and backwards
+        - each node has reference to prev and next node in addition to data
+        - stores reference to a head and tail as well
+
+    
+    Circularly linked list:
+        - similar to DLL, but last node links back to first
+        - causes a cyclical traversal through list
 """
