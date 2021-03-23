@@ -63,4 +63,41 @@ Objective 1: Time/space complexity, strengths & weaknesses, and common uses of a
     Circularly linked list:
         - similar to DLL, but last node links back to first
         - causes a cyclical traversal through list
+
+
+
+    * Time Complexity:
+
+        - Lookups: using index is O(n) linear due to list traversal over each node
+
+        - Appends: adding an item to end of list is O(1) constant
+            - using reference to tail, easily insert after tail and update new tail
+
+        - Insertions: in worst case O(n) due to list traversal over nodes
+
+        - Deletions: in words case O(n) due to traversal
+
+    
+    * Space Complexity:
+        - O(n) linear space complexity as each node takes up n space in memory
+
+
+    
+    * Strengths:
+        - primary strength is that operations at ends are fast -> O(1) constant
+            - we always have reference to head and tail
+        
+        - size of list can fluctuate, so knwoing how much space at init is not necessary
+            - similar to dynamic array
+
+        - a benefit as compared to dynamic arrays is LL's don't have doubling appends
+            - since nodes are spread out in memory, doubling size and moving data not needed
+            - whenever adding a new element, we just need to find space enough for single element
+    
+
+    * Weaknesses:
+        - inability to efficiently access data at specific index every time
+            - 0th index (head) is easy, but in middle or at end is not
+            - in order to know if a LL has an element at index, we need to traverse list & count
+            - no simple math to jump from first element to 7th like an array
 """
