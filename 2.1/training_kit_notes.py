@@ -5,7 +5,7 @@ Sprint 2.1 - Array & String Manipulation
 
 
 """
-Objective 1 - Time & space complexity, strengths & weaknesses, basic array operations
+Objective 1: Time & space complexity, strengths & weaknesses, basic array operations
 
 - Python does not have a static array data type
     - But the list type is built on dynamic arrays (which rely on static arrays underneath)
@@ -62,4 +62,40 @@ Objective 1 - Time & space complexity, strengths & weaknesses, basic array opera
     Additonal Resources:
         https://www.hackerearth.com/practice/data-structures/arrays/1-d/tutorial/
         https://www.pythoncentral.io/how-to-slice-listsarrays-and-tuples-in-python/
+"""
+
+
+
+"""
+Objective 2: In-place vs out-of-place algorithms
+
+    * In-place functions modify or destroy the state of the input data
+        - this is more space efficient than allocating space for new array
+        - space bonus comes with a trade off:
+            - risk of unintentionally altering the data and destorying previous state
+
+    * Out-of-place functions protect the state and data of original array
+        - adds space complexity but prevents unwanted modifications to input
+
+
+        ** When to use in-place vs out-of-place?
+            - best to default to out-of-place
+            - only use in-place when explicitly told to or need to preserve space
+
+
+    Pass by reference vs pass by value:
+        
+        * Pass by value (primitive types)
+            - integers, floats, strings
+            - cannot change original object in memory
+
+        * Pass by reference (non-primitve types)
+            - lists, dictionaries
+            - passed into function as a reference to original object in memory
+                - changes made to named parameter will alter original object
+                - create a copy to prevent unintended changes to state/data
+
+        
+    Additonal Resources:
+        https://www.techiedelight.com/in-place-vs-out-of-place-algorithms/
 """
