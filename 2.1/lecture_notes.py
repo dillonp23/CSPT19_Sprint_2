@@ -74,3 +74,31 @@ Return the leftmost pivot index. If no such index exists, return -1.
     Left sum = nums[0] + nums[1] + nums[2] = 1 + 7 + 3 = 11
     Right sum = nums[4] + nums[5] = 5 + 6 = 11
 """
+
+# the pivot index is not counted in the sum, i.e. it's the sum of digits to left and right
+
+def pivotIndex(nums):
+    rhs_sum = sum(nums)
+    lhs_sum = 0
+
+    for i, num in enumerate(nums):
+        if i - 1 >= 0:
+            lhs_sum += nums[i-1]
+
+        rhs_sum -= num
+
+        if lhs_sum == rhs_sum:
+            return i
+
+    return -1
+
+
+print(pivotIndex([1,2,2,3])) # => expected: 2
+print(pivotIndex([1,2,3])) # => expected: -1
+print(pivotIndex([2,0,2])) # => expected: 1
+print(pivotIndex([1,2,-2])) # => expected: 0
+print(pivotIndex([-2,2])) # => expected: -1
+
+# pivotIndex([2,0,-2]) => 1
+# pivotIndex([1,2,-2]) => 0 =>> pivot index is zero, because sum to the left of pivot is 0 and sum to the right (-2 + 2 == 0)
+# pivotIndex([-2,2]) => -1 =>> none because the pivot index would need to be between 0 and 1
