@@ -20,7 +20,6 @@ The digits are stored such that the most significant digit is at the head of the
 
 You may assume the integer does not contain any leading zero, except the number 0 itself.
 
- 
 
 * Example 1:
     Input: digits = [1,2,3]
@@ -28,6 +27,29 @@ You may assume the integer does not contain any leading zero, except the number 
     Explanation: The array represents the integer 123.
 """
 
+# def plusOne(digits):
+#     carry = 1
+#     i = len(digits) - 1
+    
+#     while i > 0:
+#         curr_sum = digits[i] + carry
+#         carry = int(curr_sum / 10)
+
+#         digits[i] = curr_sum % 10
+#         i -= i
+
+#     print(carry)
+
+#     if carry > 0:
+#         digits.insert(0, carry)
+
+    
+#     return digits
+
+
+# print(plusOne([1,2,9])) # => expected
+# print(plusOne([9,9,9]))# => expected [1,0,0,0]
+# print(plusOne([0]))
 
 
 """
