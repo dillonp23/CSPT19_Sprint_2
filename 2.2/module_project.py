@@ -21,3 +21,9 @@ will be asked to accomplish in an interview.
     For l = 1-> 3-> 4-> 6 and value = 0, the output should be:
         insertValueIntoSortedLinkedList(l, value) = [0, 1, 3, 4, 6]
 """
+
+class ListNode:
+
+    def __init__(self, value=None, next=None):
+        self.value = value
+        self.next = next
