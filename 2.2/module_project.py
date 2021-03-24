@@ -69,3 +69,45 @@ def resultNodes(head):
 
             # set prev to current
             # update current to next
+
+
+def insertValueIntoSortedLinkedList(l, value):
+    if value is None:
+        return l
+
+    new_node = ListNode(value)
+
+    if l is None:
+        return new_node
+
+    prev = None
+    curr = l
+
+    while curr:
+        
+        if prev is None:
+            if new_node.value < curr.value:
+                new_node.next = curr
+                return new_node
+            
+            if curr.next is None and new_node.value > curr.value:
+                curr.next = new_node
+                break
+
+        else:
+            
+            if prev.value < new_node.value and new_node.value < curr.value:
+                
+                new_node.next = curr
+                prev.next = new_node
+                break
+
+    
+            if curr.next is None:
+                curr.next = new_node
+                break
+
+        prev = curr
+        curr = curr.next
+
+    return l
