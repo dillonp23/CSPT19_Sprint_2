@@ -111,3 +111,38 @@ def insertValueIntoSortedLinkedList(l, value):
         curr = curr.next
 
     return l
+
+
+# 1. insertValueIntoSortedLinkedList(None, 5) => expected: 5->None
+test_1 = insertValueIntoSortedLinkedList(None, 5)
+print(resultNodes(test_1))
+
+
+# 2. insertValueIntoSortedLinkedList(1->3->4->6->None, 5) => expected: 1->3->4->5->6->None
+a_2 = ListNode(1)
+b_2 = ListNode(3)
+c_2 = ListNode(4)
+d_2 = ListNode(6)
+
+a_2.next = b_2
+b_2.next = c_2
+c_2.next = d_2
+
+test_2 = insertValueIntoSortedLinkedList(a_2, 5)
+print(resultNodes(test_2))
+
+
+# 3. insertValueIntoSortedLinkedList(239->None, 240) => expected: 239->240->None
+a_3 = ListNode(239)
+test_3 = insertValueIntoSortedLinkedList(a_3, 240)
+print(resultNodes(test_3))
+
+
+# insertValueIntoSortedLinkedList(1->3->4->5->6->None, 10) => expected: 1->3->4->5->6->10->None
+test_4 = insertValueIntoSortedLinkedList(a_2, 10)
+print(resultNodes(test_4))
+
+
+# insertValueIntoSortedLinkedList(1->3->4->5->6->10->None, 0) => expected: 0->1->3->4->5->6->10->None
+test_5 = insertValueIntoSortedLinkedList(a_2, 0)
+print(resultNodes(test_5))
