@@ -27,3 +27,45 @@ class ListNode:
     def __init__(self, value=None, next=None):
         self.value = value
         self.next = next
+
+
+def resultNodes(head):
+    
+    while head:
+        return str(head.value) + "->" + str(resultNodes(head.next))
+    else:
+        return None
+
+
+# Step 1: Understand & Plan
+    # def insertNewValue(list, value):
+        # return l if no new value or new node if no l
+
+        # prev = None
+        # curr = l
+
+        # while there is a current value:
+            # 1st case => 
+                # if prev is None:
+                    # if new_node.value < curr.value:
+                        # set new_node's next value to curr
+                        # return new_node
+                            
+                    # if new_node.value > curr.value:
+                        # curr.next = new_node
+                        # break
+
+            # 2nd case => 
+                # prev.value < new_node.value and new_node.value < curr.value:
+                    # new_node.next = curr
+                    # prev.next = new_node
+                    # break
+
+            # 3rd case =>
+                # if curr.next is None:
+                # (we're at the tail of current list, so add new node)
+                # curr.next = new_node
+                # break
+
+            # set prev to current
+            # update current to next

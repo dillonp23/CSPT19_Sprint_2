@@ -168,10 +168,11 @@ my_ll.append(4)
 
 
 def printNodes(head):
-    curr = head
-
-    while curr:
-         return str(curr.data) + "->" + str(printNodes(curr.next))
+    
+    while head:
+        return str(head.data) + "->" + str(printNodes(head.next))
+    else:
+        return None
 
 
 print(printNodes(a))
