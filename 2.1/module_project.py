@@ -59,7 +59,7 @@ You are given the prices of a stock, in the form of an array of integers, prices
 stock on the ith day (0-based index). Assuming that you are allowed to buy and sell the stock only once, your task is to find 
 the maximum possible profit (the difference between the buy and sell prices).
 
-* Note: 
+* Notes: 
     - You can assume there are no fees associated with buying or selling the stock.
 
 * Examples:
@@ -76,3 +76,12 @@ the maximum possible profit (the difference between the buy and sell prices).
     It would be most profitable to buy the stock on day 0 and sell it on day 1. 
     Thus, the maximum profit is prices[1] - prices[0] = 100 - 3 = 97.
 """
+
+# minimum price for buying variable 
+# profit variable
+
+# iterate using i in range(1, len):
+    # compare current price less miniumum buy is bigger than profit:
+        # update profit to current price - min buy
+    # if current price less than min buy
+        # update min but to current price
