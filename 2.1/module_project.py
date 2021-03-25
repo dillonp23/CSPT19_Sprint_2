@@ -140,3 +140,19 @@ print(alphabeticShift("z")) # expected: a
 print(alphabeticShift("aaaabbbccd")) # expected: bbbbcccdde
 print(alphabeticShift("fuzzy")) # expected: gvaaz
 print(alphabeticShift("codesignal")) # expected: dpeftjhobm
+
+
+
+
+"""
+Exercise 3 (task 7 of 7):
+
+You are given a parentheses sequence, check if it's regular.
+
+* Example:
+    For s = "()()(())", the output should be
+    validParenthesesSequence(s) = true
+
+    For s = "()()())", the output should be
+    validParenthesesSequence(s) = false
+"""
