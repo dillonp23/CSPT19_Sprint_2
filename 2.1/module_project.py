@@ -157,22 +157,39 @@ You are given a parentheses sequence, check if it's regular.
     validParenthesesSequence(s) = false
 """
 
+# def isRegular(s):
+#     parenths = []
+
+#     for char in s:
+#         if char == "(":
+#             parenths.append(char)
+
+#         else:
+#             if len(parenths) < 1:
+#                 return False
+            
+#             if parenths[len(parenths) - 1] == "(":
+#                 parenths.pop()
+            
+
+#     return len(parenths) == 0
+
+
 def isRegular(s):
-    parenths = []
+    count = 0
 
     for char in s:
         if char == "(":
-            parenths.append(char)
+            count += 1
 
         else:
-            if len(parenths) < 1:
+            if count == 0:
                 return False
             
-            if parenths[len(parenths) - 1] == "(":
-                parenths.pop()
+            count -= 1
             
-
-    return len(parenths) == 0
+            
+    return count == 0
 
 
 print(isRegular("()()")) # expected: true
