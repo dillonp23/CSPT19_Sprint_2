@@ -98,6 +98,7 @@ def buyAndSellStock(prices):
 
     return profit
 
+
 print(buyAndSellStock([8])) # expected: 0
 print(buyAndSellStock([8, 9, 10])) # expected: 2 ==>> prices[2] - prices[0] => 10 - 8 = 2
 print(buyAndSellStock([6, 3, 1, 2, 5, 4])) # expected: 4 ==>> prices[4] - prices[2] => 5 - 1 = 4
@@ -118,3 +119,24 @@ i.e. replace 'a' with 'b', replace 'b' with 'c', etc ('z' would be replaced by '
 * Example:
     For inputString = "crazy", the output should be alphabeticShift(inputString) = "dsbaz"
 """
+
+def alphabeticShift(input_string):
+    result = ""
+
+    for char in input_string:
+        num = ord(char)
+
+        # if letter is 'z' need to subtract to convert to 'a'
+        if num == 122:
+            num -= 26
+        
+        result += chr(num+1)
+
+    return result
+
+
+print(alphabeticShift("crazy")) # expected: dsbaz
+print(alphabeticShift("z")) # expected: a
+print(alphabeticShift("aaaabbbccd")) # expected: bbbbcccdde
+print(alphabeticShift("fuzzy")) # expected: gvaaz
+print(alphabeticShift("codesignal")) # expected: dpeftjhobm
