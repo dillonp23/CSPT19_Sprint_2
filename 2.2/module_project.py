@@ -167,8 +167,23 @@ to accomplish in an interview.
     mergeTwoLinkedLists(l1, l2) = [0, 1, 1, 2, 3, 4, 5]
 """
 
-def mergeTwoLinkedLists(l1, l2):
-    pass
+# UPER:
+    # Different cases
+        # 1. all l1 < all l2
+        # 2. uneven mix of (l1 < l2) and (l2 < l1)
+        # 3. uneven counts of l1 and l2
+        # 4. one list empty
+        # 5. both lists empty
+
+    # Plan approach
+        # prev variable, curr variable (for both lists)
+        # compare l1[0] and l2[0], use list with lower value, or l1 default if the same
+        # iterate lists
+            # at each node on new list compare l1_curr and l2_curr
+            # temp variable to store either l1 or l2
+            # l1 or l2 .next = None
+            # add either l1 or l2 node, by doing new_node.next = curr, prev.next = new_node
+            # set l1 or l2 = temp.next to iterate
 
 
 
