@@ -105,3 +105,16 @@ print(buyAndSellStock([8, 5, 3, 1])) # expected: 0 ==>> all sales at a loss so n
 print(buyAndSellStock([3, 3, 3, 3, 3, 3])) # expected: 0 ==>> all same price
 print(buyAndSellStock([4, 3, 3, 3, 3, 4])) # expected: 1 ==>> prices[5] - prices[1] => 4 - 3 = 1
 print(buyAndSellStock([3, 100, 1, 97])) # expected: 97 ==>> prices[1] - prices[0] => 4 - 3 = 1
+
+
+
+
+"""
+Exercise 2 (task 6 of 7):
+
+Given a string, your task is to replace each of its characters by the next one in the English alphabet; 
+i.e. replace 'a' with 'b', replace 'b' with 'c', etc ('z' would be replaced by 'a').
+
+* Example:
+    For inputString = "crazy", the output should be alphabeticShift(inputString) = "dsbaz"
+"""
