@@ -156,3 +156,28 @@ You are given a parentheses sequence, check if it's regular.
     For s = "()()())", the output should be
     validParenthesesSequence(s) = false
 """
+
+def isRegular(s):
+    parenths = []
+
+    for char in s:
+        if char == "(":
+            parenths.append(char)
+
+        else:
+            if len(parenths) < 1:
+                return False
+            
+            if parenths[len(parenths) - 1] == "(":
+                parenths.pop()
+            
+
+    return len(parenths) == 0
+
+
+print(isRegular("()()")) # expected: true
+print(isRegular("(()()())")) # expected: true
+print(isRegular("))()((")) # expected: false
+print(isRegular("(())(())())())(())((")) # expected: false
+print(isRegular("(())()(())())(((()(()(())))))())))(()(((")) # expected: false
+print(isRegular(")(((()(())()))(((((())))(())())()))()((((()(())())()()))))((")) # expected: false
