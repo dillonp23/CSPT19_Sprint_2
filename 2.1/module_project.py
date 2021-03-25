@@ -85,3 +85,23 @@ the maximum possible profit (the difference between the buy and sell prices).
         # update profit to current price - min buy
     # if current price less than min buy
         # update min but to current price
+
+def buyAndSellStock(prices):
+    buy_min = prices[0]
+    profit = 0
+
+    for i in range(1, len(prices)):
+        if prices[i] - buy_min > profit:
+            profit = prices[i] - buy_min
+        if prices[i] < buy_min:
+            buy_min = prices[i]
+
+    return profit
+
+print(buyAndSellStock([8])) # expected: 0
+print(buyAndSellStock([8, 9, 10])) # expected: 2 ==>> prices[2] - prices[0] => 10 - 8 = 2
+print(buyAndSellStock([6, 3, 1, 2, 5, 4])) # expected: 4 ==>> prices[4] - prices[2] => 5 - 1 = 4
+print(buyAndSellStock([8, 5, 3, 1])) # expected: 0 ==>> all sales at a loss so no profit
+print(buyAndSellStock([3, 3, 3, 3, 3, 3])) # expected: 0 ==>> all same price
+print(buyAndSellStock([4, 3, 3, 3, 3, 4])) # expected: 1 ==>> prices[5] - prices[1] => 4 - 3 = 1
+print(buyAndSellStock([3, 100, 1, 97])) # expected: 97 ==>> prices[1] - prices[0] => 4 - 3 = 1
