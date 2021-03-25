@@ -146,3 +146,23 @@ print(resultNodes(test_4))
 # insertValueIntoSortedLinkedList(1->3->4->5->6->10->None, 0) => expected: 0->1->3->4->5->6->10->None
 test_5 = insertValueIntoSortedLinkedList(a_2, 0)
 print(resultNodes(test_5))
+
+
+
+
+"""
+Exercise 2: Merge Two Linked Lists (task 4 of 4)
+
+Given two singly linked lists sorted in non-decreasing order, your task is to merge them. In other words, return 
+a singly linked list, also sorted in non-decreasing order, that contains the elements from both original lists.
+
+Note: Your solution should have O(l1.length + l2.length) time complexity, since this is what you will be asked 
+to accomplish in an interview.
+
+* Examples:
+    For l1 = [1, 2, 3] and l2 = [4, 5, 6], the output should be
+    mergeTwoLinkedLists(l1, l2) = [1, 2, 3, 4, 5, 6]
+
+    For l1 = [1, 1, 2, 4] and l2 = [0, 3, 5], the output should be
+    mergeTwoLinkedLists(l1, l2) = [0, 1, 1, 2, 3, 4, 5]
+"""
