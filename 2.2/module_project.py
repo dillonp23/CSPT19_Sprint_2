@@ -166,3 +166,18 @@ to accomplish in an interview.
     For l1 = [1, 1, 2, 4] and l2 = [0, 3, 5], the output should be
     mergeTwoLinkedLists(l1, l2) = [0, 1, 1, 2, 3, 4, 5]
 """
+
+def mergeTwoLinkedLists(l1, l2):
+    pass
+
+
+
+mergeTwoLinkedLists([1], [0,2]) # expected: 0->1->2
+mergeTwoLinkedLists([2], [0,1,3]) # expected: 0->1->2->3
+mergeTwoLinkedLists([1,2,3], [4,5,6]) # expected: 1->2->3->4->5->6
+mergeTwoLinkedLists([1,1,2,4], [0,3,5]) # expected: 0->1->1->2->3->4->5
+mergeTwoLinkedLists([0,0,2], [1,1,3]) # expected: 0->0->1->1->2->3
+mergeTwoLinkedLists([0,2,4,8], [1,3,5,7]) # expected: 0->1->2->3->4->5->7->8
+mergeTwoLinkedLists([0,1,2,4], [0,1,3,5]) # expected: 0->0->1->1->2->3->4->5
+
+
