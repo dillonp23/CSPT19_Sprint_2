@@ -113,39 +113,39 @@ def insertValueIntoSortedLinkedList(l, value):
     return l
 
 
-# 1. insertValueIntoSortedLinkedList(None, 5) => expected: 5->None
-test_1 = insertValueIntoSortedLinkedList(None, 5)
-print(resultNodes(test_1))
+# # 1. insertValueIntoSortedLinkedList(None, 5) => expected: 5->None
+# test_1 = insertValueIntoSortedLinkedList(None, 5)
+# print(resultNodes(test_1))
 
 
-# 2. insertValueIntoSortedLinkedList(1->3->4->6->None, 5) => expected: 1->3->4->5->6->None
-a_2 = ListNode(1)
-b_2 = ListNode(3)
-c_2 = ListNode(4)
-d_2 = ListNode(6)
+# # 2. insertValueIntoSortedLinkedList(1->3->4->6->None, 5) => expected: 1->3->4->5->6->None
+# a_2 = ListNode(1)
+# b_2 = ListNode(3)
+# c_2 = ListNode(4)
+# d_2 = ListNode(6)
 
-a_2.next = b_2
-b_2.next = c_2
-c_2.next = d_2
+# a_2.next = b_2
+# b_2.next = c_2
+# c_2.next = d_2
 
-test_2 = insertValueIntoSortedLinkedList(a_2, 5)
-print(resultNodes(test_2))
-
-
-# 3. insertValueIntoSortedLinkedList(239->None, 240) => expected: 239->240->None
-a_3 = ListNode(239)
-test_3 = insertValueIntoSortedLinkedList(a_3, 240)
-print(resultNodes(test_3))
+# test_2 = insertValueIntoSortedLinkedList(a_2, 5)
+# print(resultNodes(test_2))
 
 
-# insertValueIntoSortedLinkedList(1->3->4->5->6->None, 10) => expected: 1->3->4->5->6->10->None
-test_4 = insertValueIntoSortedLinkedList(a_2, 10)
-print(resultNodes(test_4))
+# # 3. insertValueIntoSortedLinkedList(239->None, 240) => expected: 239->240->None
+# a_3 = ListNode(239)
+# test_3 = insertValueIntoSortedLinkedList(a_3, 240)
+# print(resultNodes(test_3))
 
 
-# insertValueIntoSortedLinkedList(1->3->4->5->6->10->None, 0) => expected: 0->1->3->4->5->6->10->None
-test_5 = insertValueIntoSortedLinkedList(a_2, 0)
-print(resultNodes(test_5))
+# # insertValueIntoSortedLinkedList(1->3->4->5->6->None, 10) => expected: 1->3->4->5->6->10->None
+# test_4 = insertValueIntoSortedLinkedList(a_2, 10)
+# print(resultNodes(test_4))
+
+
+# # insertValueIntoSortedLinkedList(1->3->4->5->6->10->None, 0) => expected: 0->1->3->4->5->6->10->None
+# test_5 = insertValueIntoSortedLinkedList(a_2, 0)
+# print(resultNodes(test_5))
 
 
 
@@ -185,14 +185,29 @@ to accomplish in an interview.
             # add either l1 or l2 node, by doing new_node.next = curr, prev.next = new_node
             # set l1 or l2 = temp.next to iterate
 
+def make_linked_list(input_list):
+    head = None
+    prev = None
+
+    for item in input_list:
+        new_node = ListNode(item)
+
+        if head is None:
+            head = new_node
+            prev = head
+        else:
+            prev.next = new_node
+            prev = new_node
+
+    return head
 
 
-mergeTwoLinkedLists([1], [0,2]) # expected: 0->1->2
-mergeTwoLinkedLists([2], [0,1,3]) # expected: 0->1->2->3
-mergeTwoLinkedLists([1,2,3], [4,5,6]) # expected: 1->2->3->4->5->6
-mergeTwoLinkedLists([1,1,2,4], [0,3,5]) # expected: 0->1->1->2->3->4->5
-mergeTwoLinkedLists([0,0,2], [1,1,3]) # expected: 0->0->1->1->2->3
-mergeTwoLinkedLists([0,2,4,8], [1,3,5,7]) # expected: 0->1->2->3->4->5->7->8
-mergeTwoLinkedLists([0,1,2,4], [0,1,3,5]) # expected: 0->0->1->1->2->3->4->5
 
-
+print(resultNodes(mergeTwoLinkedLists([1], []))) # expected: 1->None
+print(resultNodes(mergeTwoLinkedLists([1], [0,2]))) # expected: 0->1->2->None
+print(resultNodes(mergeTwoLinkedLists([2], [0,1,3]))) # expected: 0->1->2->3->None
+print(resultNodes(mergeTwoLinkedLists([1,2,3], [4,5,6]))) # expected: 1->2->3->4->5->6->None
+print(resultNodes(mergeTwoLinkedLists([1,1,2,4], [0,3,5]))) # expected: 0->1->1->2->3->4->5->None
+print(resultNodes(mergeTwoLinkedLists([0,0,2], [1,1,3]))) # expected: 0->0->1->1->2->3->None
+print(resultNodes(mergeTwoLinkedLists([0,2,4,8], [1,3,5,7]))) # expected: 0->1->2->3->4->5->7->8->None
+print(resultNodes(mergeTwoLinkedLists([0,1,2,4], [0,1,3,5])))  # expected: 0->0->1->1->2->3->4->5->None
