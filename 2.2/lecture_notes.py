@@ -107,3 +107,34 @@ def resultNodes(head):
         return str(head.value) + "->" + str(resultNodes(head.next))
     else:
         return None
+
+
+def reverseList(head):
+    prev = None
+    curr = head
+
+    while curr:
+        temp = curr.next
+        curr.next = prev
+        prev = curr
+        curr = temp
+
+    return prev
+
+
+# Examples and test cases:
+a = make_linked_list([0,1,2,3,4])
+reversed_a = reverseList(a)
+print(resultNodes(reversed_a))
+
+b = make_linked_list([])
+reversed_b = reverseList(b)
+print(resultNodes(reversed_b))
+
+c = make_linked_list([3,5,7,9,22])
+reversed_c = reverseList(c)
+print(resultNodes(reversed_c))
+
+d = make_linked_list([100,95,90,85,80,75])
+reversed_d = reverseList(d)
+print(resultNodes(reversed_d))
