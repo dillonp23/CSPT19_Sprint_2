@@ -203,7 +203,7 @@ def make_linked_list(input_list):
 
 
 def mergeTwoLinkedLists(l1, l2):
-    # Convert input Pyhton list to a Linked List
+    # Convert input lists -> Linked Lists
     l1 = make_linked_list(l1)
     l2 = make_linked_list(l2)
 
@@ -242,7 +242,7 @@ def mergeTwoLinkedLists(l1, l2):
     return head
 
 
-
+print(resultNodes(mergeTwoLinkedLists([], []))) # expected: None
 print(resultNodes(mergeTwoLinkedLists([1], []))) # expected: 1->None
 print(resultNodes(mergeTwoLinkedLists([1], [0,2]))) # expected: 0->1->2->None
 print(resultNodes(mergeTwoLinkedLists([2], [0,1,3]))) # expected: 0->1->2->3->None
