@@ -62,7 +62,7 @@ It is guaranteed that the node to be deleted is not a tail node in the list.
     Explanation: You are given the second node with value 5, the linked list should become 4 -> 1 -> 9 after calling your function.
 """
 
-def deleteNode(list, node):
+def deleteNode(self, node):
     next = node.next
     node.val = next.val
     node.next = next.next
@@ -83,3 +83,27 @@ Given the head of a singly linked list, reverse the list, and return the reverse
     Input: head = [1,2,3,4,5]
     Output: [5,4,3,2,1]
 """
+
+def make_linked_list(input_list):
+    head = None
+    prev = None
+
+    for item in input_list:
+        new_node = LinkedListNode(item)
+
+        if head is None:
+            head = new_node
+            prev = head
+        else:
+            prev.next = new_node
+            prev = new_node
+
+    return head
+
+
+def resultNodes(head):
+    
+    while head:
+        return str(head.value) + "->" + str(resultNodes(head.next))
+    else:
+        return None
