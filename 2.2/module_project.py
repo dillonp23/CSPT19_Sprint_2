@@ -202,6 +202,46 @@ def make_linked_list(input_list):
     return head
 
 
+def mergeTwoLinkedLists(l1, l2):
+    # Convert input Pyhton list to a Linked List
+    l1 = make_linked_list(l1)
+    l2 = make_linked_list(l2)
+
+    if l2 is None:
+        return l1
+    elif l1 is None:
+        return l2
+        
+    head = None
+    
+    if l1.value <= l2.value:
+        head = l1
+        l1 = l1.next
+    elif l2.value < l1.value:
+        head = l2
+        l2 = l2.next
+    
+    prev = head
+    
+    while l1 and l2:
+        if l1.value <= l2.value:
+            prev.next = l1
+            prev = l1
+            l1 = l1.next
+        elif l2.value < l1.value:
+            prev.next = l2
+            prev = l2
+            l2 = l2.next
+    
+    if l1 is None:
+        prev.next = l2
+    elif l2 is None:
+        prev.next = l1
+        
+
+    return head
+
+
 
 print(resultNodes(mergeTwoLinkedLists([1], []))) # expected: 1->None
 print(resultNodes(mergeTwoLinkedLists([1], [0,2]))) # expected: 0->1->2->None
