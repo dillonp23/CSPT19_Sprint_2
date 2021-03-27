@@ -157,3 +157,75 @@ Note that the relative order inside both the even and odd groups should remain a
     Input: head = [1,2,3,4,5]
     Output: [1,3,5,2,4]
 """
+
+def group_nodes(head):
+    head = make_linked_list(head)
+
+    even_list = None
+    even_prev = None
+
+    odd_list = None
+    odd_prev = None
+
+    curr = head
+
+    while curr:
+        temp = curr.next
+
+        if curr.value % 2 == 0:
+            if even_list is None:
+                even_list = curr
+                even_prev = even_list
+            else:
+                even_prev.next = curr
+                curr.next = None
+                even_prev = curr
+
+        elif curr.value % 2 != 0:
+            if odd_list is None:
+                odd_list = curr
+                odd_prev = odd_list
+            else:
+                odd_prev.next = curr
+                curr.next = None
+                odd_prev = curr
+
+        curr = temp
+
+
+    if odd_prev:
+        odd_prev.next = even_list
+    else:
+        return even_list
+    
+
+    return odd_list
+
+
+# iterate through list
+# if node is odd, go to next node
+# if node is even, remove even node and append to an even_list
+# after iterating through all nodes in head, append the evens list to head
+# if the first node of the list is even and prev is None
+
+
+group_1 = group_nodes([1,2,3,4,5,6]) # expected: None
+print(group_1)
+
+group_2 = group_nodes([0]) # expected: 0->None
+print(group_2)
+
+###
+# Bug: Need to fix algorithm when input size is only 2
+group_3 = group_nodes([2,1]) # expected: 1->2->None
+# print(group_3)
+###
+
+group_4 = group_nodes([1,2,3,4,5]) # expected: 1->3->5->2->4->None
+print(group_4)
+
+group_5 = group_nodes([2,4,6,1,3,5]) # expected: 1->3->5->2->4->6->None
+print(group_5)
+
+group_6 = group_nodes([3,4,6,3,1,8,9]) # expected: 3->3->1->9->4->6->8->None
+print(group_6)
