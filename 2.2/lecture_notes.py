@@ -44,7 +44,7 @@ def traverseLinkedList(startNode):
         print(curr)
         curr = curr.next
 
-
+print("\nNotes & Exmaples:\n")
 traverseLinkedList(a)
 
 
@@ -121,7 +121,7 @@ def reverseList(head):
 
     return prev
 
-
+print("\n\nExercise 2:\n")
 # Examples and test cases:
 a = make_linked_list([0,1,2,3,4])
 reversed_a = reverseList(a)
@@ -168,11 +168,14 @@ def group_nodes(head):
     odd_prev = None
 
     curr = head
+    count = 0
 
     while curr:
-        temp = curr.next
+        next = curr.next
+        count += 1
 
-        if curr.value % 2 == 0:
+        if count % 2 == 0:
+
             if even_list is None:
                 even_list = curr
                 even_prev = even_list
@@ -181,7 +184,8 @@ def group_nodes(head):
                 curr.next = None
                 even_prev = curr
 
-        elif curr.value % 2 != 0:
+        else:
+
             if odd_list is None:
                 odd_list = curr
                 odd_prev = odd_list
@@ -190,7 +194,7 @@ def group_nodes(head):
                 curr.next = None
                 odd_prev = curr
 
-        curr = temp
+        curr = next
 
 
     if odd_prev:
@@ -208,7 +212,7 @@ def group_nodes(head):
 # after iterating through all nodes in head, append the evens list to head
 # if the first node of the list is even and prev is None
 
-
+print("\n\nExercise 3:\n")
 group_1 = group_nodes([1,2,3,4,5,6]) # expected: None
 print(group_1)
 
@@ -217,15 +221,15 @@ print(group_2)
 
 ###
 # Bug: Need to fix algorithm when input size is only 2
-group_3 = group_nodes([2,1]) # expected: 1->2->None
-# print(group_3)
+group_3 = group_nodes([1,2]) # expected: 1->2->None
+print(group_3)
 ###
 
 group_4 = group_nodes([1,2,3,4,5]) # expected: 1->3->5->2->4->None
 print(group_4)
 
-group_5 = group_nodes([2,4,6,1,3,5]) # expected: 1->3->5->2->4->6->None
+group_5 = group_nodes([2,4,6,1,3,5]) # expected: 2->6->3->4->1->5->None
 print(group_5)
 
-group_6 = group_nodes([3,4,6,3,1,8,9]) # expected: 3->3->1->9->4->6->8->None
+group_6 = group_nodes([3,4,6,3,1,8,9]) # expected: 3->6->1->9->4->3->8->None
 print(group_6)
