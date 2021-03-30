@@ -104,12 +104,12 @@ Sprint 2 - Module 3: Stack & Queues
 """
 
 class LinkedListNode:
-    def __init__(self, value=None, next=None):
-        self.value = value
+    def __init__(self, data=None, next=None):
+        self.data = data
         self.next = next
     
     def __repr__(self):
-        return f"Node({self.value})->{self.next}"
+        return f"Node({self.data})->{self.next}"
 
 
 class Queue:
@@ -174,7 +174,7 @@ print(my_queue.rear)
         1. using a Linked List
         2. using a Dynamic Array
 
-    - Dynamic Array (a List if using Python) Stacks:
+    * Dynamic Array (a List if using Python) Stacks:
         - push method adds to end of array (append)
         - pop method removes last element of array
 """
@@ -216,3 +216,62 @@ print(my_stack.data)
 
 my_stack.push(my_stack.peek())
 print(my_stack.data)
+
+
+
+
+"""
+Objective 5: Implementing a Stack with a Linked List
+
+    * Linked List stacks:
+        - push method adds node to head of linked list
+        - pop method removes node at head of list
+        
+
+    ** Note: Stacks built on top of either data structue (Dynamic Array or Linked List):
+        - function in the same manner: LIFO
+
+        * Linked List Stack works on FRONT of data structure
+            - push/pop/peek head of linked list
+
+        * Dynamic Array Stacks work on REAR of data structure
+            - push/pop/peek at end of the array
+"""
+
+class LinkedListStack:
+    def __init__(self, top=None):
+        self.top = top
+
+
+    def push(self, data):
+        new_node = LinkedListNode(data)
+
+        new_node.next = self.top
+        self.top = new_node
+
+
+    def pop(self):
+        if self.top is not None:
+            popped_top = self.top
+            self.top = popped_top.next
+
+        return popped_top.data
+
+
+    def peek(self):
+        if self.top is not None:
+            return self.top.data
+
+        return "Empty Stack"
+
+
+# Examples of using a Stack built with a Linked List
+my_ll_stack = LinkedListStack()
+
+for i in range(1,6):
+    my_ll_stack.push(i)
+
+print(my_ll_stack.top)
+print(my_ll_stack.pop())
+my_ll_stack.push(my_ll_stack.peek())
+print(my_ll_stack.top)
