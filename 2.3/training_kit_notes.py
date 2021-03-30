@@ -44,4 +44,53 @@ Sprint 2 - Module 3: Stack & Queues
             * Breadth-first traversal
                 - a method of traversing heirachical data structures
                 - queues can be used to facillitate this type of traversal
+
+
+
+* Stacks
+    - LIFO (last-in, first-out order)
+    - like a stack of papers
+        - last paper added to stack will be first removed
+
+    
+    Time Complexity:
+
+        * Push: O(1) - constant time
+            - adding to top of stack
+
+        * Pop: O(1) - constant time
+            - removing item from top of stack
+
+        * Peek: O(1) - constant time
+            - inspect top item of stack without removing
+
+
+    Space Complexity:
+
+        * O(n) - linear space
+
+
+    Strengths:
+        - primary strength is fast operations, all O(1) constant
+
+    
+    Weaknesses:
+        - no specific weaknesses as its a very targeted data structure
+
+
+    When to use a stack?
+        - useful in any situation where LIFO order is needed
+        - example use cases:
+
+            * Parsing strings
+                - ensuring all parentheses of a string are balanced
+
+            * Function calls and executions
+                - managed on a call stack
+                - when calling a function, its added to the call stack
+                - when finished executing a function its removed from call stack
+
+            * Iterative depth-first search
+                - traversing down the length of a data structure
+                - if result isn't found, will pop back to the location at which it branched 
 """
