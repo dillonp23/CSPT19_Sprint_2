@@ -98,6 +98,7 @@ Sprint 2 - Module 3: Stack & Queues
 
 
 
+
 """
 * Objective 3: Implementing a Queue using a Linked List
 """
@@ -112,9 +113,9 @@ class LinkedListNode:
 
 
 class Queue:
-    def __init__(self):
-        self.front = None
-        self.rear = None
+    def __init__(self, front=None, rear=None):
+        self.front = front
+        self.rear = rear
 
 
     def enqueue(self, item):
@@ -151,4 +152,67 @@ class Queue:
 
 
     def isEmpty(self):
-        return self.front == None
+        return self.front == None 
+
+
+# Examples of using a queue
+my_queue = Queue()
+
+for i in range(1,6):
+    my_queue.enqueue(i)
+
+print(my_queue.front)
+print(my_queue.rear)
+
+
+
+
+"""
+* Objective 4: Implementing a Stack using a Dynamic Array (a List in Python)
+
+    - Two ways to implement a Stack:
+        1. using a Linked List
+        2. using a Dynamic Array
+
+    - Dynamic Array (a List if using Python) Stacks:
+        - push method adds to end of array (append)
+        - pop method removes last element of array
+"""
+
+class Stack:
+    def __init__(self, data=None):
+        self.data = data
+
+
+    def push(self, item):
+        self.data.append(item)
+
+
+    def pop(self):
+        if len(self.data) > 0:
+            return self.data.pop()
+        
+        return "Empty Stack"
+
+
+    def peek(self):
+        count = len(self.data)
+
+        if count > 0:
+            return self.data[count-1]
+
+        return "Empty Stack"
+
+
+# Examples of using a stack
+my_data = [1,2,3,4,5]
+my_stack = Stack(my_data)
+
+print(my_stack.data)
+print(my_stack.peek())
+print(my_stack.data)
+print(my_stack.pop())
+print(my_stack.data)
+
+my_stack.push(my_stack.peek())
+print(my_stack.data)
