@@ -2,7 +2,8 @@
 """
 Sprint 2 - Module 3: Stack & Queues
 
-* Queues
+
+* Objective 1: Queues
     - FIFO (First-in, First-out)
     - Analogous to a line or queue in real life
 
@@ -47,7 +48,7 @@ Sprint 2 - Module 3: Stack & Queues
 
 
 
-* Stacks
+* Objective 2: Stacks
     - LIFO (last-in, first-out order)
     - like a stack of papers
         - last paper added to stack will be first removed
@@ -94,3 +95,60 @@ Sprint 2 - Module 3: Stack & Queues
                 - traversing down the length of a data structure
                 - if result isn't found, will pop back to the location at which it branched 
 """
+
+
+
+"""
+* Objective 3: Implementing a Queue using a Linked List
+"""
+
+class LinkedListNode:
+    def __init__(self, value=None, next=None):
+        self.value = value
+        self.next = next
+    
+    def __repr__(self):
+        return f"Node({self.value})->{self.next}"
+
+
+class Queue:
+    def __init__(self):
+        self.front = None
+        self.rear = None
+
+
+    def enqueue(self, item):
+        new_node = LinkedListNode(item)
+
+        #  check if queue empty
+        if self.isEmpty():
+            self.front = new_node
+            self.rear = new_node
+        
+        else:
+            # add new node to rear
+            self.rear.next = new_node
+            # reassign rear to new node
+            self.rear = new_node
+
+
+    def dequeue(self):
+        # check if queue is empty
+        if self.isEmpty():
+            return
+
+        # keep copy of previous front
+        old_front = self.front
+        # set new front
+        self.front = old_front.next
+
+        #  check if queue is now empty
+        if self.front is None:
+            # update rear to none
+            self.rear = None
+
+        return old_front
+
+
+    def isEmpty(self):
+        return self.front == None
