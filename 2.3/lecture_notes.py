@@ -69,3 +69,27 @@ my_deck.append('c')
 
 print(my_deck.count('c'))
 
+
+class StackDeque:
+    def __init__(self, data=deque()):
+        self.data = data
+
+    
+    def push(self, item):
+        self.data.append(item)
+
+    
+    def pop(self):
+        return self.data.pop()
+
+
+my_deque = StackDeque()
+my_deque.push(1)
+my_deque.push(2)
+my_deque.push(3)
+my_deque.push(4)
+my_deque.push(5)
+
+print(my_deque.data)
+print(my_deque.pop())
+print(my_deque.data)
