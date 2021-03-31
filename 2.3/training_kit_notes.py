@@ -54,7 +54,7 @@ Sprint 2 - Module 3: Stack & Queues
         - last paper added to stack will be first removed
 
     
-    Time Complexity:
+    Time Complexity (using Linked List):
 
         * Push: O(1) - constant time
             - adding to top of stack
