@@ -21,7 +21,7 @@ Sprint 2.4 Lecture Notes - Searching & Recursion
         4. repeat
 
 
-* Hint: whenever you see the word "sorted" think binary search
+* Hint: whenever you see the word "sorted" or "range of numbers" think binary search
 """
 
 
@@ -57,7 +57,7 @@ def search(nums, target):
 
     return -1
 
-
+print("Exercise 1:")
 nums = [0,13,22,43,45,56,62,73,80,92,102]
 print(search(nums, 73))
 
@@ -113,7 +113,7 @@ find the first bad version. You should minimize the number of calls to the API.
 
     Input: n = 5, bad = 4
     Output: 4
-    
+
     Explanation:
     call isBadVersion(3) -> false
     call isBadVersion(5) -> true
@@ -124,3 +124,35 @@ find the first bad version. You should minimize the number of calls to the API.
     Input: n = 1, bad = 1
     Output: 1
 """
+
+
+
+
+"""
+* Recursion
+    - a function that calls itself
+    - can be elegant when doing repetitive work
+    - a fractal pattern is a pattern that produces a picture which contains an infinite amount of copies of itself
+
+
+    * the base case is the simplest case which returns in order to stop the recursive calls
+        - not having proper base cases will cause an infinite loop
+        - run out of memory, and cause a stack overflow
+        - function will error out
+
+* Example of a use case:
+    - factorial function
+    - binary search with recursion
+"""
+
+def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+
+    return n * factorial(n-1)
+
+print("\nExercise 4:")
+print(factorial(0))
+print(factorial(1))
+print(factorial(2))
+print(factorial(3))
