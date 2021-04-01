@@ -228,3 +228,27 @@ Given an array of integers nums which is sorted in ascending order, and an integ
     Output: 4
     Explanation: 9 exists in nums and its index is 4
 """
+# Solve with recursion - two functions
+def recursiveBinSearch(nums, target):
+    return searchHelper(nums, 0, len(nums) - 1, target)
+
+
+def searchHelper(nums, start, end, target):
+    if start > end:
+        return -1
+    
+    mid = (start + end) // 2
+
+    if nums[mid] == target:
+        return mid
+    elif nums[mid] < target:
+        return searchHelper(nums, mid + 1, end, target)
+    else:
+        return searchHelper(nums, start, mid - 1, target)
+
+
+print("\nExercise 4 - Binary Search Using Recursion:")
+print(recursiveBinSearch(nums, 2))
+print(recursiveBinSearch(nums, 10))
+print(recursiveBinSearch(nums, 12))
+print(recursiveBinSearch(nums, 73))
