@@ -57,8 +57,12 @@ def search(nums, target):
 
     return -1
 
+
 print("Exercise 1:")
-nums = [0,13,22,43,45,56,62,73,80,92,102]
+nums = [0,2,7,8,10,13,22,43,45,56,62,73,80,92,102]
+print(search(nums, 2))
+print(search(nums, 10))
+print(search(nums, 12))
 print(search(nums, 73))
 
 
@@ -107,7 +111,6 @@ following ones to be bad.
 You are given an API bool isBadVersion(version) which returns whether version is bad. Implement a function to 
 find the first bad version. You should minimize the number of calls to the API.
 
- 
 
 * Examples:
 
@@ -208,3 +211,20 @@ print(fibonacci(3))
 print(fibonacci(10))
 print(fibonacci(13))
 print(fibonacci(20))
+
+
+
+
+"""
+We will be doing the same binary search challenge as exercise 1, but this time using recursion!
+
+Exercise 4: "704. Binary Search" (https://leetcode.com/problems/binary-search/)
+
+Given an array of integers nums which is sorted in ascending order, and an integer target, write a function to search target in nums. If target exists, then return its index. Otherwise, return -1.
+
+
+* Example:
+    Input: nums = [-1,0,3,5,9,12], target = 9
+    Output: 4
+    Explanation: 9 exists in nums and its index is 4
+"""
