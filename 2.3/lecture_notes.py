@@ -74,11 +74,9 @@ class StackDeque:
     def __init__(self, data=deque()):
         self.data = data
 
-    
     def push(self, item):
         self.data.append(item)
 
-    
     def pop(self):
         return self.data.pop()
 
@@ -93,8 +91,6 @@ my_deque.push(5)
 print(my_deque.data)
 print(my_deque.pop())
 print(my_deque.data)
-
-
 
 
 """
@@ -129,3 +125,13 @@ Implement the MinStack class:
         minStack.top();    // return 0
         minStack.getMin(); // return -2
 """
+
+class MinStack:
+
+    def __init__(self, data=deque()):
+        self.data = data
+
+
+
+# since min element needs to be retrieved in constant time, always append min to right
+# before adding to stack see if the new element is less than the current min, if so pushLeft, else push 

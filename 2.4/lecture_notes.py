@@ -42,16 +42,22 @@ target in nums. If target exists, then return its index. Otherwise, return -1.
 
 def search(nums, target):
 
-    start, end = 0, len(nums) - 1
+    # start = 0
+    # end = len(nums) - 1
+    # ^ this can be simplified into a single line
+    start, end = 0, len(nums) -1
 
     while start <= end:
+        # use floor division '//' to make an int
         mid = (start + end) // 2
 
         if nums[mid] == target:
             return mid
         elif nums[mid] < target:
+            # start moves to the right, end stays same
             start = mid + 1
         else:
+            # start stays same, end moves left
             end = mid - 1
 
 
