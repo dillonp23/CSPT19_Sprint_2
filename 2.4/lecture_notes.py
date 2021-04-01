@@ -190,6 +190,7 @@ def firstBadVersion(n):
 
     * IN ANY RECURSIVE FUNCTION:
         - first task is to define base case(s)!
+        - base case is when we want recursion to stop
 
 * Example of a use case:
     - factorial function
@@ -245,7 +246,7 @@ def tabFib(n):
     fibs = [0,1]
 
     for i in range(2, n + 1):
-        fibs.append([fibs[i - 1] + fibs[i - 2]])
+        fibs.append(fibs[i - 1] + fibs[i - 2])
 
     return fibs[n]
 
