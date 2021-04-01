@@ -85,10 +85,11 @@ We are playing the Guess Game. The game is as follows:
 
     - You call a pre-defined API int guess(int num), which returns 3 possible results:
 
-    -1: The number I picked is lower than your guess (i.e. pick < num).
-    1: The number I picked is higher than your guess (i.e. pick > num).
-    0: The number I picked is equal to your guess (i.e. pick == num).
-    Return the number that I picked.
+        -1: The number I picked is lower than your guess (i.e. pick < num).
+        1: The number I picked is higher than your guess (i.e. pick > num).
+        0: The number I picked is equal to your guess (i.e. pick == num).
+
+    - Return the number that I picked.
 
 
 * Examples:
@@ -99,7 +100,25 @@ We are playing the Guess Game. The game is as follows:
     Input: n = 1, pick = 1
     Output: 1
 """
+# def guess(num) -> int:
+    # defined in Leetcode
 
+def guessNumber(n):
+    start, end = 1, n
+
+    while start <= end:
+        mid = (start + end) // 2
+        result = guess(mid)
+
+        if result == 0:
+            return mid
+        elif result == -1:
+            end = mid - 1
+        else:
+            start = mid + 1
+
+
+    return -1
 
 
 
