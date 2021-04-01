@@ -274,14 +274,18 @@ Given an array of integers nums which is sorted in ascending order, and an integ
     Explanation: 9 exists in nums and its index is 4
 """
 # Solve with recursion - two functions
+# Pretty common to use a 2nd helper function with recursion
 def recursiveBinSearch(nums, target):
     return searchHelper(nums, 0, len(nums) - 1, target)
 
 
 def searchHelper(nums, start, end, target):
+    # base case => if we've searched entire list, we need to stop recursive calls
+    # equivalent to "while start <= end" in iterative binary search of example 1
     if start > end:
         return -1
     
+    # floor divison to get int (not float)
     mid = (start + end) // 2
 
     if nums[mid] == target:
@@ -293,6 +297,7 @@ def searchHelper(nums, start, end, target):
 
 
 print("\nExercise 4 - Binary Search Using Recursion:")
+nums = [0,2,7,8,10,13,22,43,45,56,62,73,80,92,102]
 print(recursiveBinSearch(nums, 2))
 print(recursiveBinSearch(nums, 10))
 print(recursiveBinSearch(nums, 12))
