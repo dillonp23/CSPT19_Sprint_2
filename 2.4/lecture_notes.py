@@ -100,8 +100,9 @@ We are playing the Guess Game. The game is as follows:
     Input: n = 1, pick = 1
     Output: 1
 """
-# def guess(num) -> int:
-    # defined in Leetcode
+def guess(num) -> int:
+    # defined by Leetcode behind scenes
+    pass
 
 def guessNumber(n):
     start, end = 1, n
@@ -152,6 +153,24 @@ find the first bad version. You should minimize the number of calls to the API.
     Input: n = 1, bad = 1
     Output: 1
 """
+
+def isBadVersion(n) -> bool:
+    # defined by Leetcode behind scenes
+    pass
+
+def firstBadVersion(n):
+    # input is a range of nums, up to n
+    start, end = 0, n
+
+    while start <= end:
+        mid = (start + end) // 2
+
+        if isBadVersion(mid):
+            end = mid - 1
+        else:
+            start = mid + 1
+
+    return start
 
 
 
