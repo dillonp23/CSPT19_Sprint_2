@@ -140,6 +140,10 @@ find the first bad version. You should minimize the number of calls to the API.
         - run out of memory, and cause a stack overflow
         - function will error out
 
+
+    * IN ANY RECURSIVE FUNCTION:
+        - first task is to define base case(s)!
+
 * Example of a use case:
     - factorial function
     - binary search with recursion
@@ -151,8 +155,56 @@ def factorial(n):
 
     return n * factorial(n-1)
 
-print("\nExercise 4:")
+
+print("\nExample 4 - Factorial Recursively:")
 print(factorial(0))
 print(factorial(1))
 print(factorial(2))
 print(factorial(3))
+
+
+
+# return the value of the nth number in fibonacci sequence
+def fibonacci(n):
+    if n == 0:
+        return 0
+    if n == 1:
+        return 1
+
+    return fibonacci(n-1) + fibonacci(n-2)
+
+
+print("\nExample 5 - Fibonacci Recursively:")
+print(fibonacci(3))
+print(fibonacci(10))
+print(fibonacci(13))
+print(fibonacci(20))
+
+
+
+
+"""
+* Downsides to recursion
+    - can get complicated very quickly
+    - can have a high space complexity
+
+* What could you do instead?
+    - dynamic programming!
+
+    * one dynamic programming technique is called tabulation
+"""
+# tabulation example
+def tabFib(n):
+    fibs = [0,1]
+
+    for i in range(2, n + 1):
+        fibs.append([fibs[i - 1] + fibs[i - 2]])
+
+    return fibs[n]
+
+
+print("\nExample 6 - Tabulation for Fibonacci:")
+print(fibonacci(3))
+print(fibonacci(10))
+print(fibonacci(13))
+print(fibonacci(20))
