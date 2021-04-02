@@ -199,7 +199,7 @@ search for target in nums. If target exists, then return its index, otherwise re
 
 # UPER - Plan:
 # keywords: *sorted, *ascending
-# will be writing a binary search algo
+# will be writing a simple binary search algo
 # compare value at mid index
 # if value < target ==> start = mid + 1
 # else ==> end = mid -1
@@ -207,5 +207,19 @@ search for target in nums. If target exists, then return its index, otherwise re
 # output: return index or -1
 
 def csBinarySearch(nums, target):
-    pass
- 
+    start, end = 0, len(nums) - 1
+
+    while start <= end:
+        # use floor division to get integer for mid index
+        mid = (start + end) // 2
+        val = nums[mid]
+
+        if val == target:
+            return mid
+        elif val < target:
+            start = mid + 1
+        else:
+            end = mid - 1
+
+    
+    return -1
