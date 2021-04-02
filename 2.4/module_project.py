@@ -104,3 +104,16 @@ For a given positive integer n, determine if it can be represented as a sum of t
     4.  For n = 66, the output should be
         fibonacciSimpleSum2(n) = false
 """
+
+def fibonacciSimpleSum2(n):
+    pass
+
+
+
+# UPER - Plan:
+# build a list of all fibonacci number up to n using the tabulation method
+# before adding the new numbers to the list, set 'tagret_num = n - curr_fib'
+    # check if target_num is greater than curf_fib_num
+        #  just add to fib_nums list and continue
+    # else if target_num is < curr_fib_num
+        # use a second function to pass fib_nums, target_num and see if target_num is in list w/ binary search
