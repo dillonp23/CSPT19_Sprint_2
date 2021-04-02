@@ -171,3 +171,28 @@ print(fibonacciSimpleSum2(60)) # expected: True
 print(fibonacciSimpleSum2(66)) # expected: False
 print(fibonacciSimpleSum2(144)) # expected: True
 print(fibonacciSimpleSum2(1928372849)) # expected: False
+
+
+
+
+"""
+Exercise 2 (task 6 of 7):
+
+Given a sorted (in ascending order) integer array nums of n elements and a target value, write a function to 
+search for target in nums. If target exists, then return its index, otherwise return -1.
+
+* Examples:
+
+    1.  Input: nums = [-1,0,3,5,9,12], target = 9
+        Output: 4
+        Explanation: 9 exists in nums and its index is 4
+
+    2.  Input: nums = [-1,0,3,5,9,12], target = 2
+        Output: -1
+        Explanation: 2 does not exist in nums so return -1
+
+* Notes:
+    All elements in nums are unique.
+    The length of nums will be <= 100
+    The value of each element in nums will be in the range [1, 10000]
+"""
