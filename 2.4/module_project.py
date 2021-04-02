@@ -104,6 +104,7 @@ For a given positive integer n, determine if it can be represented as a sum of t
     4.  For n = 66, the output should be
         fibonacciSimpleSum2(n) = false
 """
+
 # UPER - Plan:
 # if n == 1, return True
 
@@ -117,3 +118,32 @@ For a given positive integer n, determine if it can be represented as a sum of t
     # check if target_num is < curr_fib_num
         # use a helper function to pass fib_nums list & target_num
         # if target_num is in list w/ binary search, return True
+
+
+def fibonacciSimpleSum2(n):
+    if n == 1:
+        return True
+
+    fib_nums = [0,1]
+    i = 2
+    
+    # continue looping until the last number in fib_nums is >= n
+    while fib_nums[-1] < n:
+        curr_fib_num = fib_nums[i - 1] + fib_nums[i - 2]
+        target_num = n - curr_fib_num
+        
+        if target_num < curr_fib_num:
+            result = fibSumHelper(fib_nums, target_num)
+            
+            if result + curr_fib_num == n:
+                return True
+
+        fib_nums.append(curr_fib_num)
+        i += 1
+
+
+    return False
+
+
+def fibSumHelper(nums, target):
+    pass
