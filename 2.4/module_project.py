@@ -146,4 +146,28 @@ def fibonacciSimpleSum2(n):
 
 
 def fibSumHelper(nums, target):
-    pass
+    start, end = 0, len(nums) - 1
+
+    while start <= end:
+        mid = (start + end) // 2
+        result = nums[mid]
+
+        if result == target:
+            return result
+        elif result < target:
+            start = mid + 1
+        else:
+            end = mid - 1
+
+
+    return -1
+
+
+
+print("Exercise 1 - Two Sum Fibonacci:")
+print(fibonacciSimpleSum2(1)) # expected: True
+print(fibonacciSimpleSum2(11)) # expected: True
+print(fibonacciSimpleSum2(60)) # expected: True
+print(fibonacciSimpleSum2(66)) # expected: False
+print(fibonacciSimpleSum2(144)) # expected: True
+print(fibonacciSimpleSum2(1928372849)) # expected: False
