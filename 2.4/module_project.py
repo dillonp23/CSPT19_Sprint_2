@@ -72,3 +72,35 @@ Given an example of a binary search algorithm, what must be true?
 * Answer:
     - item_list must be sorted from smallest to greatest
 """
+
+
+
+
+"""
+Exercise 1 (task 5 of 7):
+
+For a given positive integer n, determine if it can be represented as a sum of two Fibonacci numbers (possibly equal).
+
+* Examples:
+
+    1.  For n = 1, the output should be
+        fibonacciSimpleSum2(n) = true
+
+        Explanation: 1 = 0 + 1 = F0 + F1
+
+
+    2.  For n = 11, the output should be
+        fibonacciSimpleSum2(n) = true
+
+        Explanation: 11 = 3 + 8 = F4 + F6
+
+
+    3.  For n = 60, the output should be
+        fibonacciSimpleSum2(n) = true
+
+        Explanation: 60 = 5 + 55 = F5 + F10
+
+    
+    4.  For n = 66, the output should be
+        fibonacciSimpleSum2(n) = false
+"""
