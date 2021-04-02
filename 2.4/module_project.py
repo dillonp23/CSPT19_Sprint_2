@@ -196,3 +196,16 @@ search for target in nums. If target exists, then return its index, otherwise re
     The length of nums will be <= 100
     The value of each element in nums will be in the range [1, 10000]
 """
+
+# UPER - Plan:
+# keywords: *sorted, *ascending
+# will be writing a binary search algo
+# compare value at mid index
+# if value < target ==> start = mid + 1
+# else ==> end = mid -1
+
+# output: return index or -1
+
+def csBinarySearch(nums, target):
+    pass
+ 
