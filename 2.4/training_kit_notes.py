@@ -39,7 +39,7 @@ Objective 1: Understanding Logarithms
                 1. binary search algorithms
 
                 2. merge sort algorithms 
-                    - divides collection in halfm then merges sorted halves
+                    - divides collection in half then merges sorted halves
                 
                 3. perfect binary trees
                     - number of nodes doubles at each level

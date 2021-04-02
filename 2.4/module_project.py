@@ -11,4 +11,16 @@ Which logarithmic expression is identical to the following exponential expressio
 
 * Answer:
     log_2(64) = n
+
+
+
+* Task 2 (multiple choice):
+
+When solving an algorithmic coding challenge, which keywords should you look out for that 
+might alert you that logarithims are involved?
+
+* Answer:
+    - divide in half
+    - binary search
+    - double
 """
