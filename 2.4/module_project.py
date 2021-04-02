@@ -296,3 +296,26 @@ Your solution should have better than O(n) time complexity over the number of it
     All values of nums are unique.
     Numbers from 1 up to the length of the list will be contained in the list.
 """
+
+# UPER - Plan:
+# keywords: *sorted, *ascending, *pivot
+
+# the input is sorted and rotated at a pivot therefore when comparing the mid we need to check adjacent index values
+# will be a binary search variation
+# use standard bin search method
+
+# result = nums[mid]
+# if result == target:
+    # return index
+# else:
+    # we need to check if our index is the pivot point
+    # compare values adjacent to index
+    # lhs = nums[mid - 1]
+    # rhs = nums[mid + 1]
+    # compare result < or > target
+        # compare lhs < or > rhs
+            # update mid and start accordingly
+
+# output: return index or -1
+
+# [4,5,6,7,8,9,1,2,3] // target = 9
