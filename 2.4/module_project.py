@@ -317,3 +317,36 @@ Your solution should have better than O(n) time complexity over the number of it
 # target = 4
 # expected_index = target - 1 ==> 4 - 1 = 3
 # actual_index = expected_index + difference ==> 3 + (-2) = 1
+
+def csSearchRotatedSortedArray(nums, target):
+    count = len(nums) - 1
+    mid_index = count // 2
+
+    mid_val = nums[mid_index]
+    expected_val = mid_index + 1
+    # shifted to the right
+    difference = expected_val - mid_val
+
+    expected_index = target - 1
+    actual_index = expected_index + difference
+
+    if actual_index > count:
+        actual_index -= len(nums)
+
+    return actual_index
+
+
+print("\nExercise 3 - Search Sorted & Rotated Array")
+print(csSearchRotatedSortedArray([8,9,10,1,2,3,4,5,6,7], 4))
+
+[1,2,3,4,5,6]
+
+# target = 90
+# expected index of target = 89
+# nums[89] = 72
+
+# nums[0] = 83 - 1 = 82
+# len(nums) - 1 = 99 - 82 = 17
+
+# if actual > len(nums):
+#   actual -= count
