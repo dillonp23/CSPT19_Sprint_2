@@ -263,3 +263,36 @@ nums_4 = [158, 227, 265, 311, 377, 661, 688, 802, 827, 829, 902, 1016, 1127, 123
     7442, 7631, 7759, 7762, 7917, 8111, 8204, 8470, 8505, 8508, 8672, 8952, 9075, 
     9097, 9248, 9467, 9532, 9598, 9885, 9933, 9997]
 print(csBinarySearch(nums_4, 2385))
+
+
+
+
+"""
+Exercise 3 (task 7 of 7):
+
+Given an integer array nums sorted in ascending order, and an integer target. Suppose that nums is rotated at some pivot 
+unknown to you beforehand (i.e., [1,2,4,5,6,7] might become [4,5,6,7,1,2]).
+
+You should search for target in nums and if found return its index, otherwise return -1.
+
+Your solution should have better than O(n) time complexity over the number of items in the list. 
+    - there is an O(log n) solution 
+    - there is also an O(1) solution
+
+* Examples:
+
+    1.  Input: nums = [6,7,1,2,3,4,5], target = 1
+        Output: 2
+
+    2.  Input: nums = [6,7,1,2,3,4,5], target = 3
+        Output: 4
+
+    3.  Input: nums = [1], target = 2
+        Output: -1
+
+* Notes:
+    1 <= nums.length < 100
+    1 <= nums[i] <= 100
+    All values of nums are unique.
+    Numbers from 1 up to the length of the list will be contained in the list.
+"""
