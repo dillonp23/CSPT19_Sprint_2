@@ -342,3 +342,31 @@ new_index = expected_index - diff ==> 19 - 6 ==> 13
 return new_index  ==> 13
 i.e. nums[13] = target
 """
+
+
+
+# Test case 2:
+target = 20
+nums = [12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,1,2,3,4,5,6,7,8,9,10,11]
+result = csSearchRotatedSortedArray(nums, target)
+print(result)
+print(nums[result] == target)
+assert nums[result] == target
+
+"""
+[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]
+                       ^ 
+                pivot point @ 10th index: value = 11
+
+[12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,1,2,3,4,5,6,7,8,9,10,11]
+                                ^                                              ^
+                        new 10th index: value = 22                  prev 10th index @ 29th index
+
+diff = nums[0] - 1 ==> 12 - 1 ==> 11
+target = 20
+expected_index = 20 - 1 ==> 19
+new_index = expected_index - diff ==> 19 - 11 ==> 8
+
+return new_index  ==> 8
+i.e. nums[8] = target
+"""
