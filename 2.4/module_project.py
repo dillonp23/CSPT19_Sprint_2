@@ -289,64 +289,14 @@ Your solution should have better than O(n) time complexity over the number of it
 
 # UPER - Plan:
 # keywords: *sorted, *ascending, *pivot
-# NOTE: list will be all numbers in range(1, len(list))
+# values in list will be all numbers in range(1, len(list))
 
-#  Since list is in order from range(1, len(nums)):
-    # value at middle index should be equal to ==>> mid + 1
-    # i.e. expected value is mid + 1
-    # the difference between expected value and actual determins shift
+# check if the given target is greater than length of input_list
+    # if yes then return -1 as number is not in list --> len(nums) ~ max(nums) in this scenario
 
-# positive ==> shifted left
-# negative ==> shifted right
-
-# [4,5,6,7,1,2,3] 
-# value at mid = 1 
-# expected value = mid + 1 ==> 4 + 1 = 5
-# difference = expected - mid ==> 5 - 1 = 4
-
-# target = 2
-# expected_index = target - 1 ==> 2 - 1 = 1
-# actual_index = expected_index + difference ==> 1 + 4 = 5
-
-
-# [3,4,5,6,1,2]
-# value at mid = 6
-# expected value = mid + 1 ==> 4
-# difference = expected - mid ==> 4 - 6 = -2
-
-# target = 4
-# expected_index = target - 1 ==> 4 - 1 = 3
-# actual_index = expected_index + difference ==> 3 + (-2) = 1
-
-def csSearchRotatedSortedArray(nums, target):
-    count = len(nums) - 1
-    mid_index = count // 2
-
-    mid_val = nums[mid_index]
-    expected_val = mid_index + 1
-    # shifted to the right
-    difference = expected_val - mid_val
-
-    expected_index = target - 1
-    actual_index = expected_index + difference
-
-    if actual_index > count:
-        actual_index -= len(nums)
-
-    return actual_index
-
-
-print("\nExercise 3 - Search Sorted & Rotated Array")
-print(csSearchRotatedSortedArray([8,9,10,1,2,3,4,5,6,7], 4))
-
-[1,2,3,4,5,6]
-
-# target = 90
-# expected index of target = 89
-# nums[89] = 72
-
-# nums[0] = 83 - 1 = 82
-# len(nums) - 1 = 99 - 82 = 17
-
-# if actual > len(nums):
-#   actual -= count
+# get the value at index 0
+# use a difference variable to store whether the input_list has been pivoted
+# difference is equal to nums[0] - 1 --> since values in list start at 1
+# if difference > 0 then list has pivoted (i.e. the indexes have shifted)
+# the expected index for a target is equal to target less 1
+# return expected_index - difference
