@@ -300,3 +300,15 @@ Your solution should have better than O(n) time complexity over the number of it
 # if difference > 0 then list has pivoted (i.e. the indexes have shifted)
 # the expected index for a target is equal to target less 1
 # return expected_index - difference
+
+
+def csSearchRotatedSortedArray(nums, target):
+    if target > len(nums):
+        # target is not in the list
+        return -1
+        
+    difference = nums[0] - 1
+    expected_index = target - 1
+
+    
+    return expected_index - difference
