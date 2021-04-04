@@ -128,10 +128,51 @@ Implement the MinStack class:
 
 class MinStack:
 
-    def __init__(self, data=deque()):
-        self.data = data
+    def __init__(self):
+        self.data = deque()
+        self.min = float("inf")
+
+
+    def push(self, item):
+        if item <= self.min:
+            self.min = item
+
+        self.data.append(item)
+
+
+    def pop(self):
+        popped = self.data.pop()
+            
+        if popped == self.min:
+            if len(self.data) > 0:
+                self.min = min(self.data)
+            else:
+                self.min = float("inf")
+    
+
+    def top(self):
+        return self.data[-1]
+
+
+    def getMin(self):
+        return self.min
 
 
 
-# since min element needs to be retrieved in constant time, always append min to right
-# before adding to stack see if the new element is less than the current min, if so pushLeft, else push 
+
+print("\nExercise 1:")
+min_stack = MinStack()
+
+min_stack.push(0)
+min_stack.push(1)
+min_stack.push(0)
+print(min_stack.data)
+
+print(min_stack.getMin())
+print(min_stack.data)
+
+print(min_stack.pop())
+print(min_stack.data)
+
+print(min_stack.getMin())
+print(min_stack.data)
