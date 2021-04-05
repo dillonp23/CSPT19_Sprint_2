@@ -329,39 +329,39 @@ functions of a normal queue (push, top, pop, and empty).
 class MyStack:
 
     def __init__(self):
-        """
-        Initialize your data structure here.
-        """
+        self.data = deque()
         
 
     def push(self, x: int) -> None:
-        """
-        Push element x onto stack.
-        """
+        self.data.append(x)
         
 
     def pop(self) -> int:
-        """
-        Removes the element on top of the stack and returns that element.
-        """
+        return self.data.pop()
         
 
     def top(self) -> int:
-        """
-        Get the top element.
-        """
+        if len(self.data) > 0:
+            return self.data[-1]
         
 
-    def empty(self) -> bool:
-        """
-        Returns whether the stack is empty.
-        """
-     
+    def isEmpty(self) -> bool:
+        return len(self.data) == 0
 
 
-# Your MyStack object will be instantiated and called as such:
-# obj = MyStack()
-# obj.push(x)
-# param_2 = obj.pop()
-# param_3 = obj.top()
-# param_4 = obj.empty()
+
+print("\nExercise 2:")
+new_stack = MyStack()
+new_stack.push(1)
+new_stack.push(2)
+new_stack.push(3)
+new_stack.push(4)
+print(new_stack.data)
+
+print(new_stack.pop())
+print(new_stack.pop())
+print(new_stack.top())
+print(new_stack.isEmpty())
+print(new_stack.pop())
+print(new_stack.pop())
+print(new_stack.isEmpty())
