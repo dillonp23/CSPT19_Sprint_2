@@ -152,47 +152,34 @@ Your algorithm's runtime complexity must be in the order of O(log n).
     Output: -1
 """
 
-# array is sorted from 0+
-# becomes pivoted at some unknown index
-# need to return the index of the target value or -1 if it doesnt exist in array
-# if the target > len(array) -1, return -1
+# UPER - Plan:
 
-# check if target is less than nums[0]
-# if it is then we need to swap the direction of the range when adjusting mid for start/end
-    # use bool => if target < nums[0], shifted = true else shifted = false if not less than nums[0]
-# get mid
-# if target == nums[mid] then return mid index
-# otherwise check if target < or > nums[mid]
-# if target < nums[mid]
-    # if shifted is true set start to mid + 1
-    # else end to mid - 1
+# function_1: bin search to find pivot point and split input into 2 subarrays
+# function_2: bin search to find target index in one subarray
+
+# function 1:
+# search for index where the array is pivoted using single pass binary search
+# pivot index will be the index where the value to the right is smaller than it (since input is ascending)
+# i.e. nums[pivot] > nums[pivot + 1]
+
+# once we find pivot index, divide input into 2 subarrays
+# note: unless pivot point is the middle of index of array, each subarray will be different lengths
+
+# determine which subarray to perform bin search for target index
+# if target is less than 0th val of array, then search other array since arrays are now sorted in ascending order
+    # if target < sub_1[0]:
+        # bin search sub_2 array using function_2
+    # else:
+        # bin search sub_1 array using function_2
+
 
 def findTargetInPivotedArray(nums, target):
+    pass
 
-    shifted = False
 
-    if target < nums[0]:
-        shifted = True
+def binSearchSortedArray(nums, target):
+    pass
 
-    start, end = 0, len(nums) - 1
-
-    while start <= end:
-        mid = (start + end) // 2
-        curr_val = nums[mid]
-
-        if target == curr_val:
-            return mid
-        else:
-            if target < curr_val:
-                if shifted:
-                    start = mid + 1
-                    shifted = False
-                else:
-                    end = mid - 1
-            elif target > curr_val:
-                start = mid + 1
-    
-    return -1
 
 
 print("\nExercise 3:")
@@ -202,11 +189,7 @@ for i in range(40,100):
 for i in range(0,40):
     nums.append(i)
 
-# Solution only partially works, need to define a new method to cover all cases.
-# example of a case where solution fails below:
-print(nums)
-print(findTargetInPivotedArray(nums, 90))
-
+# print(findTargetInPivotedArray(nums, 90))
 
     
 
