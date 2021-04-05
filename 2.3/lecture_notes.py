@@ -159,7 +159,6 @@ class MinStack:
 
 
 
-
 print("\nExercise 1:")
 min_stack = MinStack()
 
@@ -176,3 +175,64 @@ print(min_stack.data)
 
 print(min_stack.getMin())
 print(min_stack.data)
+
+
+
+
+"""
+* Queues in Python:
+
+    Two methods:
+        1. enqueue(): adds to back of queue
+
+        2. dequeue(): removes from front of queue
+"""
+
+class QueueNode:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
+    def __repr__(self):
+        if self.next == None:
+            return f"{self.value}"
+
+        return f"{self.next}->{self.value}"
+
+
+class Queue:
+    def __init__(self):
+        self.head = None
+        self.tail = None
+
+    def enqueue(self, value):
+        new_node = QueueNode(value)
+
+        if self.tail == None:
+            self.tail = new_node
+            self.head = new_node
+        else:
+            self.tail.next = new_node
+            self.tail = self.tail.next
+
+    def dequeue(self):
+        if self.head:
+            temp = self.head
+            self.head = self.head.next
+            return temp.value
+
+
+
+print("\nExample of a Queue:")
+myQueue = Queue()
+myQueue.enqueue(1)
+print(myQueue.head)
+
+myQueue.enqueue(2)
+print(myQueue.head)
+
+myQueue.enqueue(3)
+print(myQueue.head)
+
+myQueue.dequeue()
+print(myQueue.head)
