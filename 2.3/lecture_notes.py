@@ -181,11 +181,25 @@ print(min_stack.data)
 
 """
 * Queues in Python:
+    - FIFO (first in first out)
+    - can be implemented using LinkedLists
 
     Two methods:
-        1. enqueue(): adds to back of queue
+        1. enqueue(value): adds to back of queue
 
         2. dequeue(): removes from front of queue
+
+
+    Time & Space Complexity:
+
+        * access: O(n)
+            - no indexing support
+            - need to dequeue until we reach end of queue
+
+        * search: O(n)
+
+        * insertion/deletion: O(n)
+            - uses linked list under the hood
 """
 
 class QueueNode:
@@ -194,10 +208,10 @@ class QueueNode:
         self.next = None
 
     def __repr__(self):
-        if self.next == None:
+        if self.next is None:
             return f"{self.value}"
 
-        return f"{self.next}->{self.value}"
+        return f"{self.value}<-{self.next}"
 
 
 class Queue:
@@ -216,22 +230,27 @@ class Queue:
             self.tail = self.tail.next
 
     def dequeue(self):
-        if self.head:
-            temp = self.head
-            self.head = self.head.next
-            return temp.value
+        if self.head is None:
+            return
+
+        temp = self.head.value
+        self.head = self.head.next
+            
+        if self.head == None:
+            self.tail = None
+            
+        return temp
 
 
 
 print("\nExample of a Queue:")
 myQueue = Queue()
 myQueue.enqueue(1)
-print(myQueue.head)
-
 myQueue.enqueue(2)
+myQueue.enqueue(3)
 print(myQueue.head)
 
-myQueue.enqueue(3)
+myQueue.dequeue()
 print(myQueue.head)
 
 myQueue.dequeue()
