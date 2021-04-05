@@ -182,17 +182,14 @@ def findTargetInPivotedArray(nums, target):
 
         if target == curr_val:
             return mid
-        elif target < curr_val:
-            if shifted:
-                start = mid + 1
-                shifted = False
-            else:
-                end = mid - 1
         else:
-            if shifted:
-                end = mid - 1
-                shifted = False
-            else:
+            if target < curr_val:
+                if shifted:
+                    start = mid + 1
+                    shifted = False
+                else:
+                    end = mid - 1
+            elif target > curr_val:
                 start = mid + 1
     
     return -1
@@ -200,14 +197,15 @@ def findTargetInPivotedArray(nums, target):
 
 print("\nExercise 3:")
 nums = []
-for i in range(15,30):
+for i in range(40,100):
     nums.append(i)
-for i in range(0,15):
+for i in range(0,40):
     nums.append(i)
 
+# Solution only partially works, need to define a new method to cover all cases.
+# example of a case where solution fails below:
 print(nums)
-print(findTargetInPivotedArray(nums, 6))
-
+print(findTargetInPivotedArray(nums, 90))
 
 
     
