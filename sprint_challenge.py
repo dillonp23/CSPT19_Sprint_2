@@ -91,3 +91,40 @@ Given two words, check if they are blanagrams of each other.
     These two words are anagrams of each other, but no letter substitution was made (the trivial substitution of a letter 
     with itself shouldn't be considered), so they are not blanagrams.
 """
+
+# words must be same length -> else return false
+# a single letter change to word1 should return true if the count of all letters in both words are the same
+# if the words are already anagrams of each other, then return false -> changing a letter will make them not
+# if difference between letter counts != 1 (only one letter change) then return false 
+
+# convert letters of word1 into a list
+# iterate through letters of word2
+    # if the letter appears in the list, remove first occurence
+    # otherwise increment a count variable
+# return count == 1 (false if more than 1 difference)
+
+def checkBlanagrams(word1, word2):
+    if len(word1) != len(word2):
+        return False
+
+    list_1 = []
+    count = 0
+
+    for letter in word1:
+        list_1.append(letter)
+    
+    for letter in word2:
+        try:
+            list_1.remove(letter)
+        except:
+            count += 1
+
+
+    return count == 1
+
+
+
+print(checkBlanagrams("aba", "aba")) # expected: False
+print(checkBlanagrams("abc", "aba")) # expected: True
+print(checkBlanagrams("ab", "aba")) # expected: False
+print(checkBlanagrams("testint", "testing")) # expected: True
