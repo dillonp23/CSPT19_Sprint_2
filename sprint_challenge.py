@@ -151,3 +151,64 @@ Your algorithm's runtime complexity must be in the order of O(log n).
     Input: nums = [4,5,6,7,0,1,2], target = 3
     Output: -1
 """
+
+# array is sorted from 0+
+# becomes pivoted at some unknown index
+# need to return the index of the target value or -1 if it doesnt exist in array
+# if the target > len(array) -1, return -1
+
+# check if target is less than nums[0]
+# if it is then we need to swap the direction of the range when adjusting mid for start/end
+    # use bool => if target < nums[0], shifted = true else shifted = false if not less than nums[0]
+# get mid
+# if target == nums[mid] then return mid index
+# otherwise check if target < or > nums[mid]
+# if target < nums[mid]
+    # if shifted is true set start to mid + 1
+    # else end to mid - 1
+
+def findTargetInPivotedArray(nums, target):
+
+    shifted = False
+
+    if target < nums[0]:
+        shifted = True
+
+    start, end = 0, len(nums) - 1
+
+    while start <= end:
+        mid = (start + end) // 2
+        curr_val = nums[mid]
+
+        if target == curr_val:
+            return mid
+        elif target < curr_val:
+            if shifted:
+                start = mid + 1
+                shifted = False
+            else:
+                end = mid - 1
+        else:
+            if shifted:
+                end = mid - 1
+                shifted = False
+            else:
+                start = mid + 1
+    
+    return -1
+
+
+print("\nExercise 3:")
+nums = []
+for i in range(15,30):
+    nums.append(i)
+for i in range(0,15):
+    nums.append(i)
+
+print(nums)
+print(findTargetInPivotedArray(nums, 6))
+
+
+
+    
+
