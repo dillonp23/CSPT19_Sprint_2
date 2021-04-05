@@ -243,7 +243,7 @@ class Queue:
 
 
 
-print("\nExample of a Queue:")
+print("\nExample of a Queue using Linked Lists:")
 myQueue = Queue()
 myQueue.enqueue(1)
 myQueue.enqueue(2)
@@ -255,3 +255,35 @@ print(myQueue.head)
 
 myQueue.dequeue()
 print(myQueue.head)
+
+
+
+
+"""
+* Queue implementations can be simplified by using a deque data structure vs a linked list
+"""
+
+class MyDeque:
+    def __init__(self):
+        self.queue = deque()
+
+    def enqueue(self, value):
+        self.queue.append(value)
+
+    def dequeue(self):
+        self.queue.popleft()
+
+
+
+print("\nExample of a Queue using deque in Python:")
+myQueue = MyDeque()
+myQueue.enqueue(1)
+myQueue.enqueue(2)
+myQueue.enqueue(3)
+print(myQueue.queue)
+
+myQueue.dequeue()
+print(myQueue.queue)
+
+myQueue.dequeue()
+print(myQueue.queue)
