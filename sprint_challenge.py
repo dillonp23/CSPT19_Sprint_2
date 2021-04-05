@@ -178,6 +178,18 @@ def findTargetInPivotedArray(nums, target):
 
     pivot_index = findPivot(nums, start, end)
 
+    if nums[pivot_index] == target:
+        return pivot_index
+
+    if nums[start] < target and target < nums[pivot_index]:
+        return sortedBinarySearch(nums, start, pivot_index, target)
+    else:
+        result = sortedBinarySearch(nums, pivot_index, end, target)
+        if result != - 1:
+            return result + pivot_index
+
+    return -1
+
 
 def findPivot(nums, start, end):
     if end < start:
