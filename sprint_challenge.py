@@ -167,11 +167,10 @@ Your algorithm's runtime complexity must be in the order of O(log n).
 # determine which subarray to perform bin search for target index
 # if nums[start] < target and target < nums[pivot]
     # return bin search from nums[start:pivot] (function_2)
-# else:
-    # bin search for target in nums[pivot:end] (function_2)
-    # if result is not -1, return pivot_index + result to get index in full array
-# return -1 if we get to end of function
 
+# return bin search for target in nums[pivot:end] (function_2)
+# we're using the full nums array (only adjusting start/end), so we can directly return the result index from above
+# this will return the index from w/in the second half of array, or -1 if target not in full array
 
 def findTargetInPivotedArray(nums, target):
     start, end = 0, len(nums) - 1
@@ -181,14 +180,13 @@ def findTargetInPivotedArray(nums, target):
     if nums[pivot_index] == target:
         return pivot_index
 
+    if nums[0] == target:
+        return 0
+
     if nums[start] < target and target < nums[pivot_index]:
         return sortedBinarySearch(nums, start, pivot_index, target)
-    else:
-        result = sortedBinarySearch(nums, pivot_index, end, target)
-        if result != - 1:
-            return result + pivot_index
-
-    return -1
+    
+    return sortedBinarySearch(nums, pivot_index, end, target)
 
 
 def findPivot(nums, start, end):
@@ -199,30 +197,45 @@ def findPivot(nums, start, end):
 
     mid = (start + end) // 2
 
+    # compare values adjacent to index to see if either are pivot
+    # index where nums[index] > nums[index + 1] is pivot
     if mid < end and nums[mid] > nums[mid + 1]:
         return mid
-    if mid > start and nums[mid] < nums[mid - 1]:
+    if mid > start and nums[mid] < nums[mid - 1]: 
         return mid - 1
+
+    # if no pivot found, continue recursing by adjusting start or end index
     if nums[start] >= nums[mid]:
         return findPivot(nums, start, mid - 1)
-
-    return findPivot(nums, mid + 1, end)
+    else:
+        return findPivot(nums, mid + 1, end)
 
 
 def sortedBinarySearch(nums, start, end, target):
-    pass
+    while start <= end:
+        mid = (start + end) // 2
+
+        if nums[mid] == target:
+            return mid
+        elif target < nums[mid]:
+            end = mid - 1
+        else:
+            start = mid + 1
+
+    return -1
 
 
 
 print("\nExercise 3:")
 nums = []
-for i in range(20,50):
+for i in range(60,101):
     nums.append(i)
-for i in range(0,20):
+for i in range(0,60):
     nums.append(i)
 
-print(nums)
-print(findTargetInPivotedArray(nums, 30))
-
-    
-
+print(findTargetInPivotedArray(nums, 60)) # expected: 0
+print(findTargetInPivotedArray(nums, 61)) # expected: 1
+print(findTargetInPivotedArray(nums, 59)) # expected: 100
+print(findTargetInPivotedArray(nums, 70)) # expected: 10
+print(findTargetInPivotedArray(nums, 50)) # expected: 91
+print(findTargetInPivotedArray(nums, 30)) # expected: 71
