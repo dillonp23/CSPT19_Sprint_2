@@ -154,42 +154,63 @@ Your algorithm's runtime complexity must be in the order of O(log n).
 
 # UPER - Plan:
 
-# function_1: bin search to find pivot point and split input into 2 subarrays
-# function_2: bin search to find target index in one subarray
+# helper function_1: bin search to find pivot point
+# helper function_2: bin search to find target index in full input array or subarray
 
 # function 1:
 # search for index where the array is pivoted using single pass binary search
 # pivot index will be the index where the value to the right is smaller than it (since input is ascending)
 # i.e. nums[pivot] > nums[pivot + 1]
 
-# once we find pivot index, divide input into 2 subarrays
-# note: unless pivot point is the middle of index of array, each subarray will be different lengths
+# once we find pivot index, divide input into subarray from start-> pivot or pivot->end
 
 # determine which subarray to perform bin search for target index
-# if target is less than 0th val of array, then search other array since arrays are now sorted in ascending order
-    # if target < sub_1[0]:
-        # bin search sub_2 array using function_2
-    # else:
-        # bin search sub_1 array using function_2
+# if nums[start] < target and target < nums[pivot]
+    # return bin search from nums[start:pivot] (function_2)
+# else:
+    # bin search for target in nums[pivot:end] (function_2)
+    # if result is not -1, return pivot_index + result to get index in full array
+# return -1 if we get to end of function
 
 
 def findTargetInPivotedArray(nums, target):
-    pass
+    start, end = 0, len(nums) - 1
+
+    pivot_index = findPivot(nums, start, end)
 
 
-def binSearchSortedArray(nums, target):
+def findPivot(nums, start, end):
+    if end < start:
+        return -1
+    if start == end:
+        return start
+
+    mid = (start + end) // 2
+
+    if mid < end and nums[mid] > nums[mid + 1]:
+        return mid
+    if mid > start and nums[mid] < nums[mid - 1]:
+        return mid - 1
+    if nums[start] >= nums[mid]:
+        return findPivot(nums, start, mid - 1)
+
+    return findPivot(nums, mid + 1, end)
+
+
+def sortedBinarySearch(nums, start, end, target):
     pass
 
 
 
 print("\nExercise 3:")
 nums = []
-for i in range(40,100):
+for i in range(20,50):
     nums.append(i)
-for i in range(0,40):
+for i in range(0,20):
     nums.append(i)
 
-# print(findTargetInPivotedArray(nums, 90))
+print(nums)
+print(findTargetInPivotedArray(nums, 30))
 
     
 
