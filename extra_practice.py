@@ -61,6 +61,8 @@ def findTargetInPivotedArray(nums, target):
 
     if nums[start] == target:
         return start
+    elif nums[end] == target:
+        return end
 
     pivot_index = getPivotIndex(nums, start, end)
 
@@ -69,26 +71,22 @@ def findTargetInPivotedArray(nums, target):
 
     if nums[start] <= target and target < nums[pivot_index]:
         return sortedBinarySearch(nums, start, pivot_index, target)
-    else:
-        return sortedBinarySearch(nums, pivot_index, end, target)
+    
+    return sortedBinarySearch(nums, pivot_index+1, end, target)
 
 
-# helper 1:
-# looking for pivot -> index where nums[i] > nums[i+1]
-# use recursion to narrow search
+#  recursive implementation
 def getPivotIndex(nums, start, end):
     # base cases
-    if start > end:
-        return -1
-    if start == end:
+    if start >= end:
         return start
 
     mid = (start + end) // 2
 
     # Check if mid or mid-1 is pivot point and return index
-    if mid < end and nums[mid] > nums[mid+1]:
+    if nums[mid] > nums[mid+1]:
         return mid
-    elif mid > start and nums[mid] < nums[mid-1]:
+    elif nums[mid] < nums[mid-1]:
         return mid-1
 
     # if no pivot found yet, recursively call
@@ -98,7 +96,7 @@ def getPivotIndex(nums, start, end):
         return getPivotIndex(nums, mid+1, end)
 
 
-# helper 2:
+
 def sortedBinarySearch(nums, start, end, target):
     while start <= end:
         mid = (start + end) // 2
@@ -115,8 +113,8 @@ def sortedBinarySearch(nums, start, end, target):
 
 
 print("Exercise 1: Find Target Index In Pivoted Array") 
-nums = [4,5,1,2,3]
-print(findTargetInPivotedArray(nums, 3)) # expected: 4
+nums = [1,3]
+print(findTargetInPivotedArray(nums, 3)) # expected: 1
 
 nums = [8,9,10,11,12,13,14,15,16,1,2,3,4,5,6,7]
 print(findTargetInPivotedArray(nums, 2)) # expected: 10
@@ -136,3 +134,12 @@ print(findTargetInPivotedArray(nums, 59)) # expected: 100
 print(findTargetInPivotedArray(nums, 70)) # expected: 10
 print(findTargetInPivotedArray(nums, 50)) # expected: 91
 print(findTargetInPivotedArray(nums, 30)) # expected: 71
+
+nums = [5,1,2,3,4]
+print(findTargetInPivotedArray(nums, 1)) # expected: 1
+
+nums = [1,3]
+print(findTargetInPivotedArray(nums, 2)) # expected: -1
+
+nums = [3,1]
+print(findTargetInPivotedArray(nums, 1)) # expected: 1

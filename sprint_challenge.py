@@ -175,24 +175,25 @@ Your algorithm's runtime complexity must be in the order of O(log n).
 def findTargetInPivotedArray(nums, target):
     start, end = 0, len(nums) - 1
 
-    pivot_index = findPivot(nums, start, end)
+    if nums[start] == target:
+        return start
+    elif nums[end] == target:
+        return end
 
+    pivot_index = findPivot(nums, start, end)
+    
     if nums[pivot_index] == target:
         return pivot_index
 
-    if nums[0] == target:
-        return 0
-
-    if nums[start] < target and target < nums[pivot_index]:
+    if nums[start] <= target and target < nums[pivot_index]:
         return sortedBinarySearch(nums, start, pivot_index, target)
     
-    return sortedBinarySearch(nums, pivot_index, end, target)
+    return sortedBinarySearch(nums, pivot_index+1, end, target)
+
 
 
 def findPivot(nums, start, end):
-    if end < start:
-        return -1
-    if start == end:
+    if start >= end:
         return start
 
     mid = (start + end) // 2
@@ -209,6 +210,7 @@ def findPivot(nums, start, end):
         return findPivot(nums, start, mid - 1)
     else:
         return findPivot(nums, mid + 1, end)
+
 
 
 def sortedBinarySearch(nums, start, end, target):
@@ -239,3 +241,7 @@ print(findTargetInPivotedArray(nums, 59)) # expected: 100
 print(findTargetInPivotedArray(nums, 70)) # expected: 10
 print(findTargetInPivotedArray(nums, 50)) # expected: 91
 print(findTargetInPivotedArray(nums, 30)) # expected: 71
+
+
+nums = [5,1,2,3,4]
+print(findTargetInPivotedArray(nums, 1)) # expected: 1
