@@ -316,22 +316,6 @@ class MyLinkedList:
 
 
     def deleteAtIndex(self, index: int) -> None:
-        if not self.head:
-            return
-        
-        if index == 0:
-            temp = self.head.next
-
-            if temp is None:
-                self.head = None
-                self.tail = None
-            else:
-                self.head = temp
-
-                if self.head.next is None:
-                    self.tail = self.head
-            return
-
         curr = self.head
         prev = None
         count = 0
@@ -339,15 +323,21 @@ class MyLinkedList:
         while curr:
             if count == index:
                 temp = curr.next
-                prev.next = temp
-                if temp is None:
-                    self.tail = prev
-                return
+                if count == 0:
+                    self.head = temp
+                else:
+                    prev.next = temp
+                    if temp is None:
+                        self.tail = prev
+                break
             else:
                 prev = curr
                 curr = curr.next
                 count += 1
 
+
+        if self.head is None:
+            self.tail = None
 
 
 print("\nExercise 2: Custom Linked List Implementation")
