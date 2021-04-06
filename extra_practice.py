@@ -48,6 +48,12 @@ Your algorithm's runtime complexity must be in the order of O(log n).
         - utilize primary function and two helpers
             - 1st helper: modified binary search to find pivot_index
             - 2nd: standard bin search (using pivot_index as start or end) to find target
+
+
+* test cases:
+    1. nums = [4,5,1,2,3], target = 3 ==>> expected: 4
+    2. nums = [8,9,10,11,12,13,14,15,16,1,2,3,4,5,6,7], target = 2 ==>> expected: 10
+    3. nums = [60...100, 1...59], target = 12 ==>> expected: 53
 """
 
 def findTargetInPivotedArray(nums, target):
@@ -94,19 +100,39 @@ def getPivotIndex(nums, start, end):
 
 # helper 2:
 def sortedBinarySearch(nums, start, end, target):
-    pass
+    while start <= end:
+        mid = (start + end) // 2
+
+        if nums[mid] == target:
+            return mid
+        elif target < nums[mid]:
+            end = mid - 1
+        else:
+            start = mid + 1
+
+    return -1
 
 
 
 print("Exercise 1: Find Target Index In Pivoted Array") 
-# nums = [4,5,1,2,3], target = 3 ==>> expected: 4
-# nums = [8,9,10,11,12,13,14,15,16,1,2,3,4,5,6,7], target = 2 ==>> expected: 10
-# nums = [60...100, 1...59], target = 12 ==>> expected: 41
+nums = [4,5,1,2,3]
+print(findTargetInPivotedArray(nums, 3)) # expected: 4
+
+nums = [8,9,10,11,12,13,14,15,16,1,2,3,4,5,6,7]
+print(findTargetInPivotedArray(nums, 2)) # expected: 10
+
 nums = []
-for i in range(23, 101):
+for i in range(60,101):
     nums.append(i)
-for i in range(1, 23):
+for i in range(0,60):
     nums.append(i)
 
-print(nums)
-print(findTargetInPivotedArray(nums, 22))
+print(findTargetInPivotedArray(nums, 12)) # expected: 53
+
+# Additional test cases:
+print(findTargetInPivotedArray(nums, 60)) # expected: 0
+print(findTargetInPivotedArray(nums, 61)) # expected: 1
+print(findTargetInPivotedArray(nums, 59)) # expected: 100
+print(findTargetInPivotedArray(nums, 70)) # expected: 10
+print(findTargetInPivotedArray(nums, 50)) # expected: 91
+print(findTargetInPivotedArray(nums, 30)) # expected: 71
