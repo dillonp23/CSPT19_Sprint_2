@@ -52,6 +52,10 @@ class Stack:
     def pop(self):
         return self.items.pop()
 
+    def peek(self):
+        if not self.isEmpty():
+            return self.items[-1]
+
 
 def queueOnStacks(requests):
     left = Stack()
@@ -135,11 +139,30 @@ whether or not the sequence is a valid bracket sequence.
 # initialize a new stack
 # iterate through each character of string
 # if character of string == ')' or ']' or '}':
-    # if the stack is empty
-        # return False as it is invalid to start with closing backet
-    # else:
+    # if stack.peek() == inverse of character:
         # stack.pop()
-# elif char == '(' or '{' or '[':
+    # else:
+        # return False
+# else (character is an open bracket):
     # stack.push(char)
-
 # return stack.isEmpty()
+
+def validBracketSequence(sequence):
+    pass
+
+
+# helper function to more easily check even brackets
+def closedInverse(char):
+    pass
+
+
+
+print("\nExercise 2: Valid Bracket Sequence")
+print(validBracketSequence("")) # expected: True
+print(validBracketSequence("()")) # expected: True
+print(validBracketSequence("][")) # expected: False
+print(validBracketSequence("(]")) # expected: False
+print(validBracketSequence("()[]{}")) # expected: True
+print(validBracketSequence("{[]}")) # expected: True
+print(validBracketSequence("([)]")) # expected: False
+print(validBracketSequence("[[(({()}))]]{()}[({})]")) # expected: True
