@@ -278,44 +278,51 @@ class MyLinkedList:
             return self.addAtHead(val)
 
         curr = self.head
-        prev = None
-        count = 0
+        next = curr.next
+        count = 1
 
-        while curr:
+        while next:
             if index == count:
                 new_node = ListNode(val)
-                new_node.next = curr
-                prev.next = new_node
+                new_node.next = next
+                curr.next = new_node
                 return
             
-            prev = curr
-            curr = curr.next
+            curr = next
+            next = curr.next
             count += 1
 
-        if curr is None and prev is not None: 
+        if next is None and curr is not None: 
             if count == index:
-                return self.addAtTail(val)
+                self.addAtTail(val)
 
     """
-    input_list = 1-2-3-4-5 // addAtIndex(4, 6):
+    input_list = 1-2-3-5 // addAtIndex(3, 4):
 
         if index == 0:
                 return self.addAtHead(val)
 
-        ||while curr:
-        ||      1-2-3-4-5
-        ||   1. ^ count = 0 ==>> prev = 1, curr = 2, count = 1
-        ||   2. ^ ^ count = 1 ==>> prev = 2, curr = 4, count = 2
-        ||   3.   ^ ^ count = 2 ==>> prev = 4, curr = 5, count = 3
-        ||   4.     ^ ^ count = 3 ==>> prev = 5, curr = None, count = 4
+        ||curr = 1
+        ||next = 2
+        ||count = 1
 
-        ||curr == None and prev != None:
-            ||count == index:
-                || return self.addAtTail(val)
+        ||while next:
+        ||      1-2-3-5
+        ||   1. ^ ^ count = 1 ==>> curr = 2, next = 3, count = 2
+        ||   2.   ^ ^ count = 2 ==>> curr = 3, next = 5, count = 3
+        ||   3.     ^ ^ count = 3 ==>> curr = 5, next = None, count = 4
+        ||   4. return // list = 1-2-3-4-5
+
+        if next == None and curr != None:
+            count == index:
+                return self.addAtTail(val)
     """
 
 
     def deleteAtIndex(self, index: int) -> None:
+        if not self.head:
+            return
+        
         curr = self.head
         prev = None
         count = 0
@@ -325,19 +332,17 @@ class MyLinkedList:
                 temp = curr.next
                 if count == 0:
                     self.head = temp
+                    if self.head is None:
+                        self.tail = None
                 else:
                     prev.next = temp
                     if temp is None:
                         self.tail = prev
-                break
+                return
             else:
                 prev = curr
                 curr = curr.next
                 count += 1
-
-
-        if self.head is None:
-            self.tail = None
 
 
 print("\nExercise 2: Custom Linked List Implementation")
