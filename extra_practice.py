@@ -75,25 +75,47 @@ def findTargetInPivotedArray(nums, target):
     return sortedBinarySearch(nums, pivot_index+1, end, target)
 
 
+
 #  recursive implementation
+# def getPivotIndex(nums, start, end):
+#     # base cases
+#     if start >= end:
+#         return start
+
+#     mid = (start + end) // 2
+
+#     # Check if mid or mid-1 is pivot point and return index
+#     if nums[mid] > nums[mid+1]:
+#         return mid
+#     elif nums[mid] < nums[mid-1]:
+#         return mid-1
+
+#     # if no pivot found yet, recursively call
+#     if nums[start] >= nums[mid]:
+#         return getPivotIndex(nums, start, mid-1)
+#     else:
+#         return getPivotIndex(nums, mid+1, end)
+
+
+
+#  iterative implementation vs recursive
 def getPivotIndex(nums, start, end):
-    # base cases
-    if start >= end:
-        return start
+    while start <= end:
+        mid = (start + end) // 2
 
-    mid = (start + end) // 2
+        if mid + 1 <= (len(nums) - 1) and nums[mid] > nums[mid + 1]:
+            return mid
+        elif nums[mid] < nums[mid - 1]:
+            return mid - 1
 
-    # Check if mid or mid-1 is pivot point and return index
-    if nums[mid] > nums[mid+1]:
-        return mid
-    elif nums[mid] < nums[mid-1]:
-        return mid-1
+        if nums[start] >= nums[mid]:
+            end = mid - 1
+        else:
+            start = mid + 1
 
-    # if no pivot found yet, recursively call
-    if nums[start] >= nums[mid]:
-        return getPivotIndex(nums, start, mid-1)
-    else:
-        return getPivotIndex(nums, mid+1, end)
+    # not searching for target index. return start (not -1)
+    # start will be equal to last element in array if no pivot point
+    return start
 
 
 
