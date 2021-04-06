@@ -228,7 +228,17 @@ class MyLinkedList:
         
 
     def get(self, index: int) -> int:        
-        pass
+        count = 0
+        curr = self.head
+
+        while curr:
+            if index == count:
+                return curr.val
+            else:
+                curr = curr.next
+                count += 1
+
+        return -1
         
 
     def addAtHead(self, val: int) -> None:
