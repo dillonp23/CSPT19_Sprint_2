@@ -130,3 +130,16 @@ whether or not the sequence is a valid bracket sequence.
     - sequence = "([)]", the output should be validBracketSequence(sequence) = false
     - sequence = "{[]}", the output should be validBracketSequence(sequence) = true
 """
+
+# UPER - Plan:
+# initialize a new stack
+# iterate through each character of string
+# if character of string == ')' or ']' or '}':
+    # if the stack is empty
+        # return False as it is invalid to start with closing backet
+    # else:
+        # stack.pop()
+# elif char == '(' or '{' or '[':
+    # stack.push(char)
+
+# return stack.isEmpty()
