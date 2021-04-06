@@ -24,6 +24,21 @@ of each "pop" operation that is performed.
     we perform "pop" again and add 2 to the answer array, and the queue becomes {3}.
 """
 
+# UPER - Plan:
+# def push(x):
+    # elements always pushed into left stack
+
+# def pop() -> int:
+    # whenever pop is called, we need to see if the right stack is empty
+    # if right stack isEmpty:
+        # we need to pop all elements from left into right
+        # while left is not empty:
+            # ele = left.pop()
+            # right.push(ele)
+
+    # after filling right, or if right stack wasn't empty, we just return right.pop()
+    # return right.pop()
+
 class Stack:
     def __init__(self):
         self.items = []
