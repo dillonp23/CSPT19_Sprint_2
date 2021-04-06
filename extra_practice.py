@@ -242,7 +242,14 @@ class MyLinkedList:
         
 
     def addAtHead(self, val: int) -> None:
-        pass
+        new_node = ListNode(val)
+
+        if self.head is None:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            new_node.next = self.head
+            self.head = new_node
         
 
     def addAtTail(self, val: int) -> None:
