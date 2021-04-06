@@ -217,7 +217,7 @@ Implement the MyLinkedList class:
 class ListNode:
     def __init__(self, val=None, next=None):
         self.val = val
-        self.next = next 
+        self.next = next
 
 
 class MyLinkedList:
@@ -225,7 +225,7 @@ class MyLinkedList:
     def __init__(self):
         self.head = None
         self.tail = None
-        
+
 
     def get(self, index: int) -> int:        
         count = 0
@@ -306,14 +306,44 @@ class MyLinkedList:
 
 
     def deleteAtIndex(self, index: int) -> None:
-        pass
+        if not self.head:
+            return
+        
+        if index == 0:
+            temp = self.head.next
+
+            if temp is None:
+                self.head = None
+                self.tail = None
+            else:
+                self.head = temp
+
+                if self.head.next is None:
+                    self.tail = self.head
+            return
+
+        curr = self.head
+        prev = None
+        count = 0
+
+        while curr:
+            if count == index:
+                temp = curr.next
+                prev.next = temp
+                if temp is None:
+                    self.tail = prev
+                return
+            else:
+                prev = curr
+                curr = curr.next
+                count += 1
 
 
 
 # Your MyLinkedList object will be instantiated and called as such:
-# obj = MyLinkedList()
-# param_1 = obj.get(index)
-# obj.addAtHead(val)
-# obj.addAtTail(val)
-# obj.addAtIndex(index,val)
-# obj.deleteAtIndex(index)
+# my_list = MyLinkedList()
+# param_1 = my_list.get(index)
+# my_list.addAtHead(val)
+# my_list.addAtTail(val)
+# my_list.addAtIndex(index,val)
+# my_list.deleteAtIndex(index)
