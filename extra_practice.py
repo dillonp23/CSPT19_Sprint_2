@@ -49,3 +49,23 @@ Your algorithm's runtime complexity must be in the order of O(log n).
             - 1st helper: modified binary search to find pivot_index
             - 2nd: standard bin search (using pivot_index as start or end) to find target
 """
+
+def findTargetInPivotedArray(nums, target):
+    pass
+
+
+# helper 1:
+def getPivotIndex(nums, start, end):
+    pass
+
+
+# helper 2:
+def sortedBinarySearch(nums, start, end, target):
+    pass
+
+
+
+print("Exercise 1: Find Target Index In Pivoted Array") 
+# nums = [4,5,1,2,3], target = 3 ==>> expected: 4
+# nums = [8,9,10,11,12,13,14,15,16,1,2,3,4,5,6,7], target = 2 ==>> expected: 10
+# nums = [60...100, 1...59], target = 12 ==>> expected: 51
