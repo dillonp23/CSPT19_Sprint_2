@@ -219,12 +219,22 @@ class ListNode:
         self.val = val
         self.next = next
 
+    def __repr__(self):
+        if self.next is None:
+            return f"{self.val}->None"
+
+        return f"{self.val}->{self.next}"
+
 
 class MyLinkedList:
 
     def __init__(self):
         self.head = None
         self.tail = None
+
+
+    def __repr__(self):
+        return f"{self.head}"
 
 
     def get(self, index: int) -> int:        
