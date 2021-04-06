@@ -58,18 +58,53 @@ def queueOnStacks(requests):
     right = Stack()
 
     def insert(x):
-        # answer here
-        pass
+        left.push(x)
 
     def remove():
-        # answer here
-        pass
+        if right.isEmpty():
+            while not left.isEmpty():
+                ele = left.pop()
+                right.push(ele)
+            
+        return right.pop()
 
     ans = []
+
     for request in requests:
         req = request.split(" ")
+        
         if req[0] == 'push':
             insert(int(req[1]))
         else:
             ans.append(remove())
+
+
     return ans
+
+
+
+print("Exercise 1: Queue on Stacks")
+requests = ["push 1", "push 2", "pop", "push 3", "pop"]
+expected = [1,2]
+result = queueOnStacks(requests)
+print(result) # expected: [1,2]
+assert result == expected
+
+requests = ["push 0", "pop"]
+expected = [0]
+result = queueOnStacks(requests)
+print(result) # expected: [0]
+assert result == expected
+
+
+requests = ["push -6", "push -8", "push -9", "push 0", "push 9", "pop", "pop", "push 3", "pop", "pop", "pop", "pop"]
+expected = [-6,-8,-9,0,9,3]
+result = queueOnStacks(requests)
+print(result) # expected: [-6,-8,-9,0,9,3]
+assert result == expected
+
+requests = ["push -539", "push -36", "pop", "push -312", "pop", "push 0", "push -910", "pop", "push 3", "pop", "pop"]
+expected = [-539,-36,-312,0,-910]
+result = queueOnStacks(requests)
+print(result) # expected: [-539,-36,-312,0,-910]
+assert result == expected
