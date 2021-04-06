@@ -51,29 +51,42 @@ Your algorithm's runtime complexity must be in the order of O(log n).
 """
 
 def findTargetInPivotedArray(nums, target):
-    pass
+    start, end = 0, len(nums)-1
+
+    if nums[start] == target:
+        return start
+
+    pivot_index = getPivotIndex(nums, start, end)
+
+    if nums[pivot_index] == target:
+        return pivot_index
+
+    if nums[start] <= target and target < nums[pivot_index]:
+        return sortedBinarySearch(nums, start, pivot_index, target)
+    else:
+        return sortedBinarySearch(nums, pivot_index, end, target)
 
 
 # helper 1:
 # looking for pivot -> index where nums[i] > nums[i+1]
 # use recursion to narrow search
 def getPivotIndex(nums, start, end):
-    mid = (start + end) // 2
-
     # base cases
-    if mid > end:
+    if start > end:
         return -1
     if start == end:
         return start
 
+    mid = (start + end) // 2
+
     # Check if mid or mid-1 is pivot point and return index
-    if nums[start] < nums[mid] and nums[mid] > nums[mid+1]:
+    if mid < end and nums[mid] > nums[mid+1]:
         return mid
-    elif nums[start] < nums[mid] and nums[mid] < nums[mid-1]:
+    elif mid > start and nums[mid] < nums[mid-1]:
         return mid-1
 
     # if no pivot found yet, recursively call
-    if nums[start] > nums[mid] and nums[mid] < nums[end]:
+    if nums[start] >= nums[mid]:
         return getPivotIndex(nums, start, mid-1)
     else:
         return getPivotIndex(nums, mid+1, end)
@@ -90,9 +103,10 @@ print("Exercise 1: Find Target Index In Pivoted Array")
 # nums = [8,9,10,11,12,13,14,15,16,1,2,3,4,5,6,7], target = 2 ==>> expected: 10
 # nums = [60...100, 1...59], target = 12 ==>> expected: 41
 nums = []
-for i in range(80, 101):
+for i in range(23, 101):
     nums.append(i)
-for i in range(1,80):
+for i in range(1, 23):
     nums.append(i)
+
 print(nums)
-print(getPivotIndex(nums, 0, len(nums)-1))
+print(findTargetInPivotedArray(nums, 22))
