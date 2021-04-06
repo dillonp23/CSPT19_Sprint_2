@@ -350,10 +350,23 @@ class MyLinkedList:
 
 
 
-# Your MyLinkedList object will be instantiated and called as such:
-# my_list = MyLinkedList()
-# param_1 = my_list.get(index)
-# my_list.addAtHead(val)
-# my_list.addAtTail(val)
-# my_list.addAtIndex(index,val)
-# my_list.deleteAtIndex(index)
+print("\nExercise 2: Custom Linked List Implementation")
+my_list = MyLinkedList()
+my_list.addAtHead(5)
+my_list.addAtHead(3)
+my_list.addAtHead(2)
+my_list.addAtHead(1)
+print(my_list)  # expected: 1->2->3->5->None
+print(my_list.get(3))  # expected: 5
+my_list.addAtIndex(3, 4)
+print(my_list)  # expected: 1->2->3->4->5->None
+my_list.addAtHead(0)
+my_list.addAtTail(6)
+my_list.addAtIndex(7, 7)
+print(my_list)  # expected: 0->1->2->3->5->6->7->None
+my_list.deleteAtIndex(7)
+print(my_list)  # expected: 0->1->2->3->5->6->None
+my_list.deleteAtIndex(0)
+print(my_list)  # expected: 1->2->3->5->6->None
+my_list.addAtIndex(7, 8)
+print(my_list)  # expected: 1->2->3->5->6->None (no change from previous)
