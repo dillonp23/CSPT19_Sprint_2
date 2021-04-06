@@ -148,7 +148,18 @@ whether or not the sequence is a valid bracket sequence.
 # return stack.isEmpty()
 
 def validBracketSequence(sequence):
-    pass
+    stack = Stack()
+
+    for char in sequence:
+        if char == ")" or char == "]" or char == "}":
+            if stack.peek() == closedInverse(char):
+                stack.pop()
+            elif stack.isEmpty():
+                return False
+        else:
+            stack.push(char)
+    
+    return stack.isEmpty()
 
 
 # helper function to more easily check even brackets
