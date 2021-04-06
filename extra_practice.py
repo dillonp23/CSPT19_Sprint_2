@@ -264,7 +264,45 @@ class MyLinkedList:
         
 
     def addAtIndex(self, index: int, val: int) -> None:
-        pass
+        if index == 0:
+            return self.addAtHead(val)
+
+        curr = self.head
+        prev = None
+        count = 0
+
+        while curr:
+            if index == count:
+                new_node = ListNode(val)
+                new_node.next = curr
+                prev.next = new_node
+                return
+            
+            prev = curr
+            curr = curr.next
+            count += 1
+
+        if curr is None and prev is not None: 
+            if count == index:
+                return self.addAtTail(val)
+
+    """
+    input_list = 1-2-3-4-5 // addAtIndex(4, 6):
+
+        if index == 0:
+                return self.addAtHead(val)
+
+        ||while curr:
+        ||      1-2-3-4-5
+        ||   1. ^ count = 0 ==>> prev = 1, curr = 2, count = 1
+        ||   2. ^ ^ count = 1 ==>> prev = 2, curr = 4, count = 2
+        ||   3.   ^ ^ count = 2 ==>> prev = 4, curr = 5, count = 3
+        ||   4.     ^ ^ count = 3 ==>> prev = 5, curr = None, count = 4
+
+        ||curr == None and prev != None:
+            ||count == index:
+                || return self.addAtTail(val)
+    """
 
 
     def deleteAtIndex(self, index: int) -> None:
