@@ -153,7 +153,12 @@ def validBracketSequence(sequence):
 
 # helper function to more easily check even brackets
 def closedInverse(char):
-    pass
+    if char == ")":
+        return "("
+    elif char == "]":
+        return "["
+    elif char == "}":
+        return "{"
 
 
 
