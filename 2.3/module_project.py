@@ -108,3 +108,25 @@ expected = [-539,-36,-312,0,-910]
 result = queueOnStacks(requests)
 print(result) # expected: [-539,-36,-312,0,-910]
 assert result == expected
+
+
+
+
+"""
+Exercise 2: Valid Bracket Sequence (task 4 of 4)
+
+Given a string sequence consisting of the characters '(', ')', '[', ']', '{', and '}'. Your task is to determine 
+whether or not the sequence is a valid bracket sequence.
+
+* Valid bracket sequence is defined in the following way:
+    - an empty bracket sequence is a valid bracket sequence.
+    - if S is a valid bracket sequence then (S), [S] and {S} are also valid.
+    - if A and B are valid bracket sequences then AB is also valid.
+
+* Examples:
+    - sequence = "()", the output should be validBracketSequence(sequence) = true
+    - sequence = "()[]{}", the output should be validBracketSequence(sequence) = true
+    - sequence = "(]", the output should be validBracketSequence(sequence) = false
+    - sequence = "([)]", the output should be validBracketSequence(sequence) = false
+    - sequence = "{[]}", the output should be validBracketSequence(sequence) = true
+"""
